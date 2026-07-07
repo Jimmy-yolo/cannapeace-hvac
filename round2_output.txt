@@ -1,0 +1,166 @@
+================================================================================
+CONDENSER PRE-COOLER FEASIBILITY ANALYSIS - ROUND 2
+GAS-20D Unit - Bangkok Installation
+================================================================================
+
+Total records: 2,036,234
+Date range: 2026-04-22 01:00:01 to 2026-06-08 05:40:56
+
+Baseline period records: 1,551,424
+
+ROUND 2 ANALYSIS
+================================================================================
+
+1. MODE-CONDITIONED THERMAL STRESS ANALYSIS
+--------------------------------------------------------------------------------
+
+MODE DISTRIBUTION:
+  AC mode: 392,102 samples (25.3% of baseline)
+  DEHUM mode: 513,902 samples (33.1%)
+  OFF mode: 633,171 samples (40.8%)
+
+AC MODE THERMAL STRESS (Circuit 1):
+----------------------------------------
+  Valid samples: 391,866
+  P50 (median): 46.5°C
+  P75: 49.8°C
+  P90: 51.7°C
+  P95: 53.5°C
+  P99: 56.0°C
+  Maximum: 60.6°C
+
+  % of AC-mode time above thresholds:
+    >45°C: 63.32%
+    >50°C: 22.83%
+    >55°C: 2.28%
+    >60°C: 0.00%
+
+  AC mode condensing temp by hour of day:
+           mean       std  count
+hour                            
+0     46.404135  3.643998  22061
+1     45.761184  4.130066  22258
+2     45.598818  4.250981  22093
+3     45.429568  4.210201  22912
+4     44.929442  3.932169  22934
+5     44.674120  3.904339  20780
+6     44.479197  3.870932  22368
+7     44.374117  3.766823  22296
+8     45.401179  3.655111  24411
+9     46.954520  3.778079  25071
+10    46.946985  4.533217  10951
+11    47.685662  4.507464   8426
+12    48.466506  4.554496   8572
+13    49.679932  4.719244  10042
+14    50.602203  4.600532  11241
+15    50.609517  4.576035  11042
+16    50.524645  4.399143  11183
+17    49.790000  4.336114  11469
+18    48.242145  4.122953  10404
+19    46.813872  4.016612   9588
+20    46.118288  4.205255   9570
+21    45.768380  4.150729   9246
+22    46.186779  3.517733  19622
+23    46.609048  3.381231  23326
+
+DEHUM MODE THERMAL STRESS (Circuit 1):
+----------------------------------------
+  Valid samples: 513,604
+  P50 (median): 32.5°C
+  P75: 34.0°C
+  P90: 36.4°C
+  P95: 37.3°C
+  P99: 39.7°C
+  Maximum: 60.0°C
+
+  % of DEHUM-mode time above thresholds:
+    >45°C: 0.29%
+    >50°C: 0.12%
+    >55°C: 0.02%
+    >60°C: 0.00%
+
+  DEHUM mode condensing temp by hour of day:
+           mean       std  count
+hour                            
+0     32.261353  2.575695  23147
+1     31.570535  2.586595  22718
+2     31.232534  2.505508  22002
+3     31.253565  2.401834  22436
+4     31.122767  2.377882  22281
+5     31.122249  2.463116  21741
+6     30.994548  2.559907  21719
+7     30.922266  2.590551  21097
+8     31.432378  2.408630  20612
+9     32.455615  2.695610  19523
+10    32.449093  2.574265  22433
+11    33.234431  2.716669  20063
+12    33.639475  2.944538  19238
+13    34.207943  2.969858  19655
+14    34.709215  3.043720  20476
+15    34.808115  2.998922  19773
+16    34.830354  2.970873  20901
+17    34.650904  2.810966  22967
+18    33.729273  2.707510  20888
+19    32.736790  2.577251  21333
+20    31.951408  2.964669  22898
+21    31.673427  3.046017  23232
+22    32.066109  2.776331  20544
+23    32.366184  2.568064  21927
+
+
+2. REVISED PRE-COOLER BENEFIT ESTIMATE
+--------------------------------------------------------------------------------
+
+MODE AND TIME WEIGHTED ANALYSIS:
+
+AC MODE:
+  Time fraction: 25.3%
+  Avg condensing temp reduction: 1.90°C
+  Avg COP improvement: 4.74%
+  Weighted contribution: 1.20%
+
+DEHUM MODE:
+  Time fraction: 33.1%
+  Avg condensing temp reduction: 2.16°C
+  Avg COP improvement: 5.39%
+  Weighted contribution: 1.79%
+
+TOTAL WEIGHTED COP IMPROVEMENT: 2.98%
+
+ANNUAL ENERGY SAVINGS:
+  Baseline consumption: 94,135 kWh/year
+  Estimated savings: 2,727 kWh/year
+  Comparison to Round 1: 6,985 kWh/year
+
+
+3. SHADE CANOPY ALTERNATIVE EVALUATION
+--------------------------------------------------------------------------------
+
+SHADE CANOPY SPECIFICATIONS:
+  Size: 4.4m × 2.0m at 1.99m height
+  Coverage: 2× AC-H0933 condensers
+  Solar blocking: ~80% during 13-16h peak
+
+SHADE CANOPY BENEFIT ESTIMATE:
+  Condensing temp reduction: 2.5°C (13-16h only)
+  COP improvement during shaded hours: 6.25%
+  AC mode time during 13-16h: 2.81%
+  DEHUM mode time during 13-16h: 5.21%
+  Total weighted COP improvement: 0.50%
+  Annual energy savings: 469 kWh/year
+
+ECONOMIC COMPARISON:
+
+Metric                                   Pre-Cooler    Shade Canopy      Do Nothing
+--------------------------------------------------------------------------------
+Capital cost (THB)                          150,000          15,000               0
+Annual opex (THB/yr)                         37,500               0               0
+Annual energy savings (kWh/yr)                2,727             469               0
+Annual value savings (THB/yr)                12,273           2,112               0
+Net annual savings (THB/yr)                 -25,227           2,112               0
+Simple payback (years)                          inf             7.1             N/A
+
+ANALYSIS COMPLETE
+================================================================================
+
+Summary saved to: /Users/jimmy/CannaPeace/hvac-analytics/ROUND2_SUMMARY.txt

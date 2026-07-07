@@ -1,0 +1,238 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                  CONDENSER PRE-COOLER QUICK REFERENCE                        ║
+║                            GAS-20D Unit - Bangkok                            ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃                        THE 30-SECOND ANSWER                                  ┃
+┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+┃                                                                              ┃
+┃  Question: Should we install a condenser evaporative pre-cooler?            ┃
+┃                                                                              ┃
+┃  Answer:   NO - System is healthy, economics are negative                   ┃
+┃                                                                              ┃
+┃  Instead:  Install sensors first (50K THB), then re-evaluate                ┃
+┃                                                                              ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                           WHY NOT INSTALL?                                   │
+├──────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│  REASON 1: Loses Money                                                       │
+│    Annual energy savings:     31,400 THB                                     │
+│    Annual operating costs:   -37,500 THB                                     │
+│    NET:                       -6,100 THB/year (NEGATIVE)                     │
+│                                                                              │
+│  REASON 2: No Thermal Stress                                                 │
+│    High temperature events:   0.7% of time                                   │
+│    System health:             99% within normal range                        │
+│                                                                              │
+│  REASON 3: Wrong Timing                                                      │
+│    Peak loads:                Nighttime (lights ON)                          │
+│    Bangkok night humidity:    85-95% RH                                      │
+│    Pre-cooler effectiveness:  Very poor during peak loads                    │
+│                                                                              │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                         WHAT TO DO INSTEAD                                   │
+├──────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│  BEST ACTION: Install Instrumentation (50,000 THB)                           │
+│                                                                              │
+│    What to add:                                                              │
+│      • Outdoor temperature sensor                                            │
+│      • Outdoor humidity sensor                                               │
+│      • Compressor power meter                                                │
+│      • Discharge line temperature                                            │
+│                                                                              │
+│    Why this is better:                                                       │
+│      • 1/3 the cost of pre-cooler                                            │
+│      • Eliminates ±50% uncertainty in analysis                               │
+│      • Prevents 150K THB bad investment                                      │
+│      • Enables ongoing optimization                                          │
+│      • ROI < 1 year via better decisions                                     │
+│                                                                              │
+│    Timeline:                                                                 │
+│      Week 1-2:    Install sensors                                            │
+│      Week 3-6:    Collect data                                               │
+│      Week 7:      Re-analyze with high confidence                            │
+│      Week 8:      Make final decision (go/no-go)                             │
+│                                                                              │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                      OTHER LOW-COST OPTIONS                                  │
+├──────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│  Option A: Clean & Optimize Condenser                                        │
+│    Cost:        10,000 THB                                                   │
+│    Savings:     ~15,000 THB/year                                             │
+│    Payback:     8 months                                                     │
+│    Risk:        Very low                                                     │
+│                                                                              │
+│  Option B: Controls Optimization                                             │
+│    Cost:        0-20,000 THB                                                 │
+│    Savings:     ~20,000 THB/year                                             │
+│    Payback:     0-12 months                                                  │
+│    Risk:        Very low (reversible)                                        │
+│                                                                              │
+│  Option C: Do Nothing                                                        │
+│    Cost:        0 THB                                                        │
+│    Justification: System adequate, no problems detected                      │
+│                                                                              │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                         BY THE NUMBERS                                       │
+├──────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│  Data analyzed:                1.55 million samples                          │
+│  Analysis period:              36 days (April 22 - May 27, 2026)             │
+│                                                                              │
+│  Thermal stress (>55°C):       0.7% of time        ✅ Healthy                │
+│  Peak runtime:                 45%                 ✅ Adequate capacity       │
+│  Average condensing temp:      31°C                ✅ Normal                 │
+│                                                                              │
+│  Pre-cooler capital cost:      150,000 THB                                   │
+│  Annual energy savings:        31,400 THB                                    │
+│  Annual operating costs:       37,500 THB          ❌ Exceeds savings        │
+│  Net annual return:            -6,100 THB          ❌ Loses money            │
+│  Simple payback:               INFINITE            ❌ Never pays back        │
+│                                                                              │
+│  Confidence level:             MODERATE (60%)      ⚠️  Missing key data      │
+│  Uncertainty range:            ±50%                ⚠️  Need better data      │
+│                                                                              │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                    WHAT'S MISSING FROM THIS ANALYSIS                         │
+├──────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│  ❌ Outdoor temperature    → Can't confirm thermal stress                    │
+│  ❌ Outdoor humidity       → Can't calculate wet bulb benefit                │
+│  ❌ Compressor power       → Can't validate energy savings                   │
+│  ❌ Discharge line temp    → Can't assess system efficiency                  │
+│                                                                              │
+│  Impact: All estimates have ±50% error bars                                  │
+│          Cannot make high-confidence 150K THB decision                       │
+│                                                                              │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                      QUESTIONS & ANSWERS                                     │
+├──────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│  Q: Is the system overheating?                                               │
+│  A: NO. Only 0.7% of time shows high condensing temps. System is healthy.    │
+│                                                                              │
+│  Q: Is the system undersized?                                                │
+│  A: NO. Peak runtime is only 45%, showing substantial capacity headroom.     │
+│                                                                              │
+│  Q: Will pre-cooler save energy?                                             │
+│  A: MINIMAL. Expected savings 7,000 kWh/year, but operating costs exceed     │
+│     savings, resulting in net loss of 6,100 THB/year.                        │
+│                                                                              │
+│  Q: Is Bangkok climate good for evaporative cooling?                         │
+│  A: SEASONAL. Dry season (Nov-Apr) good, wet season (May-Oct) poor.          │
+│     Worse: Peak loads occur at night when humidity is highest (85-95% RH).   │
+│                                                                              │
+│  Q: What if we install anyway?                                               │
+│  A: Financial risk HIGH. 150K THB investment loses ~6K THB/year.             │
+│     Better to invest 50K THB in sensors to make data-driven decision.        │
+│                                                                              │
+│  Q: What would justify pre-cooler installation?                              │
+│  A: Would need: Higher actual power (>25 kW vs 18 kW assumed), OR            │
+│     thermal stress >10% of time, OR peak runtime >80%, OR need to expand     │
+│     capacity without buying new equipment. NONE of these exist currently.    │
+│                                                                              │
+│  Q: When should we reconsider?                                               │
+│  A: After installing sensors and collecting 2-4 weeks of data. Re-analyze    │
+│     with <20% uncertainty instead of current ±50%.                           │
+│                                                                              │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                       DECISION TREE                                          │
+├──────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│  Is system showing thermal stress? ───── NO ───→ Don't install pre-cooler   │
+│                                                                              │
+│  Is system capacity-limited? ──────────── NO ───→ Don't install pre-cooler   │
+│                                                                              │
+│  Are economics positive? ────────────────  NO ───→ Don't install pre-cooler   │
+│                                                                              │
+│  Is data complete and certain? ────────── NO ───→ Install sensors first     │
+│                                                                              │
+│  ══════════════════════════════════════════════════════════════════════════  │
+│                                                                              │
+│  CONCLUSION: All paths lead to "Install sensors first, not pre-cooler"      │
+│                                                                              │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                      RECOMMENDED APPROVAL                                    │
+├──────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│  Please approve:                                                             │
+│                                                                              │
+│  ✅ DO NOT install condenser evaporative pre-cooler                          │
+│                                                                              │
+│  ✅ DO install instrumentation package (50,000 THB):                         │
+│      - Outdoor temperature/humidity sensor                                   │
+│      - Compressor power meter                                                │
+│      - Discharge line temperature sensors                                    │
+│                                                                              │
+│  ✅ DO collect data for 2-4 weeks covering full operating range              │
+│                                                                              │
+│  ✅ DO re-evaluate pre-cooler decision after data collection                 │
+│      (6-8 weeks from approval)                                               │
+│                                                                              │
+│  ✅ CONSIDER clean/optimize condenser (10K THB, 8-month payback)             │
+│                                                                              │
+│                                                                              │
+│  Approved by: _____________________   Date: __________                       │
+│                                                                              │
+│                                                                              │
+│  Budget Authority Required:  50,000 THB (instrumentation)                    │
+│                              10,000 THB (condenser maintenance - optional)   │
+│                              ───────────────────────────────                 │
+│                   TOTAL:     60,000 THB                                      │
+│                                                                              │
+│  Budget Saved (pre-cooler):  150,000 THB (deferred pending data)             │
+│                                                                              │
+│  Net Budget Impact:          -90,000 THB (60K spend vs 150K deferred)        │
+│                                                                              │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                        CONTACT INFORMATION                                   │
+├──────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│  Questions about this analysis:                                              │
+│    HVAC Analytics Team                                                       │
+│    Email: hvac-analytics@cannapeace.local                                    │
+│                                                                              │
+│  Full documentation:                                                         │
+│    Technical Report:    CONDENSER_PRECOOLER_FEASIBILITY_REPORT.md           │
+│    Executive Summary:   EXECUTIVE_SUMMARY_PRECOOLER.md                       │
+│    Decision Dashboard:  PRECOOLER_DECISION_DASHBOARD.txt                     │
+│    This Quick Ref:      QUICK_REFERENCE_PRECOOLER.txt                        │
+│                                                                              │
+│  All files located at:                                                       │
+│    /Users/jimmy/CannaPeace/hvac-analytics/                                   │
+│                                                                              │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                         BOTTOM LINE SUMMARY                                  ║
+╠══════════════════════════════════════════════════════════════════════════════╣
+║                                                                              ║
+║  DON'T install pre-cooler now (loses money, system adequate)                 ║
+║                                                                              ║
+║  DO install sensors (50K THB, eliminates 150K THB decision risk)             ║
+║                                                                              ║
+║  THEN re-evaluate in 6-8 weeks with complete data                            ║
+║                                                                              ║
+╚══════════════════════════════════════════════════════════════════════════════╝

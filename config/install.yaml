@@ -1,0 +1,33 @@
+# HVAC System Installation Metadata
+# CannaPeace - Altaqua GAS-20D Dual-Circuit Dehumidifier/AC
+
+line_set:
+  figure_a_m: 6          # TODO: CONFIRM with Jimmy - horizontal or vertical?
+  figure_b_m: 8          # TODO: CONFIRM with Jimmy - horizontal or vertical?
+  condenser_position: "CONFIRM_above_or_below_main_unit"   # CRITICAL: affects pressure interpretation
+
+  # Engineering notes:
+  # - 8m vertical R410A liquid column ≈ 0.8 bar static pressure offset
+  # - Oil return concern for 8m hot-gas riser (requires traps + adequate velocity)
+  # - Within manual's 15m max limit
+
+refrigerant:
+  type: "R410A"
+  system_1_charge_kg: 12.5   # Factory spec, untouched
+  system_2_charge_kg: null   # UNKNOWN - recharged without scale after leak repair
+  system_2_charge_notes: "Recharged post-leak WITHOUT scale or staged procedure. Likely 8-9kg added, target 12.5kg. May be undercharged."
+
+system:
+  model: "Altaqua GAS-20D"
+  circuits: 2
+  control_type: "TXV"  # Thermal expansion valve (evap temp behavior differs from EEV)
+
+site:
+  location: "Samut Prakan, Thailand"
+  lat: null   # TODO: CONFIRM with Jimmy - needed for weather API
+  lon: null   # TODO: CONFIRM with Jimmy
+
+recorded_event:
+  date: "2024-XX-XX"  # TODO: Get exact dates from Jimmy
+  description: "System 2 reheat-coil leak. Stepwise discharge pressure drops over hours. Circuit 2 short-cycled. LP2 trip stopped compressor 2. NO early warning from FBox."
+  validation_purpose: "Primary test case for anomaly detectors - should fire hours before LP2 trip"

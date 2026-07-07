@@ -1,0 +1,19 @@
+CONDENSER PRE-COOLER ROUND 2 ANALYSIS SUMMARY
+================================================================================
+
+Analysis date: 2026-06-08 05:22:01
+Data period: 2026-04-22 to 2026-05-27
+
+KEY FINDINGS:
+1. AC mode represents 25.3% of operating time
+2. Time/mode/season weighted COP improvement: 2.98%
+3. Pre-cooler net savings: -25,227 THB/year
+4. Shade canopy net savings: 2,112 THB/year
+5. Shade canopy payback: 7.1 years
+6. Pre-cooler payback: inf years
+
+RECOMMENDATION: Install shade canopy first
+- Lower risk (15K vs 150K THB)
+- No operational costs
+- Shorter payback
+- Can measure impact before considering pre-cooler

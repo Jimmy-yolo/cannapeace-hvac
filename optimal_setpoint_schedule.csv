@@ -1,0 +1,7 @@
+week,description,lights_on_temp,lights_on_humidity,lights_on_vpd,lights_off_temp,lights_off_humidity,lights_off_vpd,temp_drop
+1,Early flowering - transition,24.5,65.0,1.0760919311625903,22.0,62.0,1.0046609554023946,2.5
+2,Early flowering - bud formation,24.5,65.0,1.0760919311625903,22.0,62.0,1.0046609554023946,2.5
+3,Mid flowering - bud development,24.0,60.0,1.1935279087774593,22.0,58.0,1.1104147401815943,2.0
+4,Mid flowering - bud swelling,24.0,60.0,1.1935279087774593,22.0,58.0,1.1104147401815943,2.0
+6,Late flowering - resin production,24.5,55.0,1.383546768637616,22.0,50.0,1.321922309739993,2.5
+8,Final week - harvest prep,24.0,50.0,1.491909885971824,22.0,47.0,1.4012376483243927,2.0

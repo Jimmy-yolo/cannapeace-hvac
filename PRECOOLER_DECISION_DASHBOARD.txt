@@ -1,0 +1,257 @@
+================================================================================
+                    CONDENSER PRE-COOLER DECISION DASHBOARD
+                           GAS-20D Unit - Bangkok
+                            Analysis Date: 2026-06-08
+================================================================================
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                            RECOMMENDATION                                    │
+│                                                                              │
+│                         ❌ DO NOT INSTALL                                    │
+│                                                                              │
+│                      Confidence: MODERATE (60%)                              │
+│              (Limited by missing outdoor temp/humidity/power data)           │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                          FINANCIAL SCORECARD                                 │
+├──────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│  Installation Cost:        150,000 THB                                       │
+│  Annual Energy Savings:     31,400 THB                                       │
+│  Annual Water Cost:        -22,500 THB                                       │
+│  Annual Maintenance:       -15,000 THB                                       │
+│                            ─────────────                                     │
+│  NET ANNUAL RETURN:         -6,100 THB  ⚠️ NEGATIVE                          │
+│                                                                              │
+│  Simple Payback:            INFINITE (loses money every year)                │
+│                                                                              │
+│  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  │
+│  VERDICT: NOT ECONOMICALLY JUSTIFIED                                         │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                       TECHNICAL PERFORMANCE INDICATORS                       │
+├──────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│  Thermal Stress Assessment:                                                  │
+│    Time above 55°C condensing:     0.7%        ✅ MINIMAL (healthy)          │
+│    Avg condensing temp:            30.6°C      ✅ NORMAL                     │
+│    Peak condensing temp:           60.6°C      ⚠️  Occasional spikes         │
+│                                                                              │
+│  Capacity Assessment:                                                        │
+│    Peak afternoon runtime:         45%         ✅ ADEQUATE (not maxed out)   │
+│    Average runtime:                55%         ✅ MODERATE                   │
+│    Capacity headroom:              ~40%        ✅ SUBSTANTIAL                │
+│                                                                              │
+│  Load Profile Match:                                                         │
+│    Peak load timing:               NIGHT       ⚠️  High humidity period      │
+│    Pre-cooler effectiveness:       LOW         ❌ Poor match                 │
+│    Diurnal pattern:                INVERTED    ⚠️  Internal load dominated   │
+│                                                                              │
+│  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  │
+│  VERDICT: NO THERMAL STRESS, ADEQUATE CAPACITY, POOR LOAD MATCH              │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                          DATA QUALITY SCORECARD                              │
+├──────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│  Dataset Size:             1.55M samples     ✅ EXCELLENT                    │
+│  Time Coverage:            36 days           ✅ GOOD                         │
+│  Condensing Pressure:      Available         ✅ GOOD                         │
+│  Compressor States:        Available         ✅ GOOD                         │
+│                                                                              │
+│  Outdoor Temperature:      MISSING           ❌ CRITICAL GAP                 │
+│  Outdoor Humidity:         MISSING           ❌ CRITICAL GAP                 │
+│  Compressor Power:         MISSING           ❌ CRITICAL GAP                 │
+│  Discharge Line Temp:      MISSING           ⚠️  IMPORTANT GAP               │
+│                                                                              │
+│  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  │
+│  Overall Data Quality:     MODERATE (±50% uncertainty on estimates)          │
+│  Confidence in Conclusion: MODERATE (60%) - gaps limit precision             │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                         BANGKOK CLIMATE CONTEXT                              │
+├──────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│  DRY SEASON (Nov-Apr):                                                       │
+│    Outdoor temp:           26-35°C                                           │
+│    Humidity:               50-75% RH                                         │
+│    Wet bulb depression:    4-8°C            ✅ GOOD potential                │
+│                                                                              │
+│  WET SEASON (May-Oct):                                                       │
+│    Outdoor temp:           27-33°C                                           │
+│    Humidity:               70-95% RH                                         │
+│    Wet bulb depression:    2-5°C            ⚠️  MODERATE potential           │
+│                                                                              │
+│  NIGHTTIME (Peak load period):                                               │
+│    Humidity:               85-95% RH                                         │
+│    Wet bulb depression:    1-3°C            ❌ POOR potential                │
+│                                                                              │
+│  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  │
+│  VERDICT: Seasonal variation 2:1, worst during peak loads (nighttime)        │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                       OPERATING MODE BREAKDOWN                               │
+├──────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│  Mode         │  % Time  │  Avg Cond Temp  │  Pre-cooler Benefit            │
+│  ────────────────────────────────────────────────────────────────────────   │
+│  OFF          │   41%    │     19°C        │  None (system off)             │
+│  DEHUM        │   33%    │     33°C        │  Minimal (moderate temps)      │
+│  AC           │   25%    │     47°C        │  High (peak temps)             │
+│  Other        │    1%    │     41°C        │  Moderate                      │
+│                                                                              │
+│  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  │
+│  Pre-cooler only beneficial 25% of operating time (AC mode only)             │
+│  Weighted annual benefit: 3.2% (vs 8.8% if always in AC mode)                │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                          RISK ASSESSMENT                                     │
+├──────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│  Risk of Installing Pre-Cooler:            HIGH                              │
+│    - Negative financial returns             ❌                               │
+│    - 150K THB capital at risk               ❌                               │
+│    - Ongoing costs exceed savings           ❌                               │
+│    - Maintenance-dependent performance      ⚠️                                │
+│    - Water consumption burden               ⚠️                                │
+│                                                                              │
+│  Risk of NOT Installing:                   LOW                               │
+│    - System currently adequate              ✅                               │
+│    - No thermal stress detected             ✅                               │
+│    - Substantial capacity headroom          ✅                               │
+│                                                                              │
+│  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  │
+│  VERDICT: High risk to install, low risk to wait                             │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                       RECOMMENDED ACTION PLAN                                │
+├──────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│  STEP 1: Install Instrumentation (Priority 1)                                │
+│    Cost: 50,000 THB                                                          │
+│    ├─ Outdoor temp/humidity sensor       15,000 THB                          │
+│    ├─ Compressor power meter             25,000 THB                          │
+│    ├─ Discharge line temp sensors         5,000 THB                          │
+│    └─ Installation/integration            5,000 THB                          │
+│                                                                              │
+│  STEP 2: Collect Data (Priority 2)                                           │
+│    Duration: 2-4 weeks                                                       │
+│    └─ Cover full diurnal cycles, peak heat events, seasonal variation        │
+│                                                                              │
+│  STEP 3: Re-analyze with Complete Data (Priority 3)                          │
+│    Timeline: Week 5-6                                                        │
+│    └─ Reduce uncertainty from ±50% to <20%                                   │
+│                                                                              │
+│  STEP 4: Make High-Confidence Decision (Priority 4)                          │
+│    Timeline: Week 6                                                          │
+│    └─ Go/no-go with data certainty                                           │
+│                                                                              │
+│  STEP 5: IF Justified, Pilot Test (Priority 5)                               │
+│    Timeline: TBD                                                             │
+│    └─ One unit first, measure before/after                                   │
+│                                                                              │
+│  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  │
+│  Timeline: 6-8 weeks to high-confidence decision                             │
+│  Investment: 50K THB (1/3 cost of pre-cooler)                                │
+│  ROI: Eliminates 150K THB bad investment risk                                │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                      ALTERNATIVE OPTIONS COMPARISON                          │
+├──────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│  Option                     │ Cost     │ Annual Return │ Payback │ Risk      │
+│  ──────────────────────────────────────────────────────────────────────────  │
+│  Pre-cooler (this analysis) │ 150K THB │   -6,100 THB  │ Never   │ High ❌   │
+│  Instrumentation            │  50K THB │        TBD    │  <1 yr  │ Low  ✅   │
+│  Clean/optimize condenser   │  10K THB │  +15,000 THB  │ 0.7 yr  │ Low  ✅   │
+│  Controls optimization      │  20K THB │  +20,000 THB  │ 1.0 yr  │ Low  ✅   │
+│  Do nothing                 │   0 THB  │      0 THB    │  N/A    │ Low  ✅   │
+│                                                                              │
+│  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  │
+│  BEST OPTIONS: Instrumentation + Clean/Optimize (60K THB, positive ROI)      │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                    CONDITIONS FOR FUTURE RE-EVALUATION                       │
+├──────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│  Pre-cooler would be justified if future data shows:                         │
+│                                                                              │
+│  □  Actual compressor power >25 kW (vs assumed 18 kW)                        │
+│  □  Thermal stress >10% of time (vs current 0.7%)                            │
+│  □  Peak runtime >80% (vs current 45%)                                       │
+│  □  Condensing approach >20°C (vs healthy 10-15°C)                           │
+│  □  Need capacity expansion (pre-cooler cheaper than new unit)               │
+│                                                                              │
+│  Current status: 0 of 5 conditions met                                       │
+│                                                                              │
+│  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  │
+│  Next review: After instrumentation data collection (6-8 weeks)              │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                           KEY TAKEAWAYS                                      │
+├──────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│  1. System is HEALTHY and ADEQUATE for current loads                         │
+│     → No thermal stress, good capacity headroom                              │
+│                                                                              │
+│  2. Pre-cooler economics are NEGATIVE                                        │
+│     → Ongoing costs exceed energy savings                                    │
+│                                                                              │
+│  3. Load/climate timing is UNFAVORABLE                                       │
+│     → Peak loads during high humidity (poor evaporative potential)           │
+│                                                                              │
+│  4. Data GAPS prevent high-confidence analysis                               │
+│     → Need outdoor conditions and power measurements                         │
+│                                                                              │
+│  5. INSTRUMENTATION is the smart first investment                            │
+│     → 50K THB eliminates 150K THB decision risk                              │
+│                                                                              │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                         APPROVAL CHECKLIST                                   │
+├──────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│  □  Reviewed technical analysis and findings                                 │
+│  □  Understand data limitations and uncertainty                              │
+│  □  Acknowledge negative financial case for pre-cooler                       │
+│  □  Approve instrumentation investment (50K THB)                             │
+│  □  Commit to data collection period (2-4 weeks)                             │
+│  □  Schedule re-evaluation meeting (6-8 weeks)                               │
+│                                                                              │
+│  Approved by: ___________________  Date: __________                          │
+│                                                                              │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+================================================================================
+                         SUPPORTING DOCUMENTATION
+================================================================================
+
+Full Technical Report:
+  /Users/jimmy/CannaPeace/hvac-analytics/CONDENSER_PRECOOLER_FEASIBILITY_REPORT.md
+
+Executive Summary:
+  /Users/jimmy/CannaPeace/hvac-analytics/EXECUTIVE_SUMMARY_PRECOOLER.md
+
+Analysis Code:
+  /Users/jimmy/CannaPeace/hvac-analytics/condenser_precooler_feasibility.py
+
+Diagnostic Plots:
+  /Users/jimmy/CannaPeace/hvac-analytics/condenser_precooler_analysis.png
+
+Data Source:
+  /Users/jimmy/CannaPeace/hvac-analytics/data/aligned/aligned_with_modes.parquet
+
+================================================================================
+                              END OF DASHBOARD
+================================================================================

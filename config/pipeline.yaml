@@ -1,0 +1,110 @@
+# HVAC Analytics Pipeline Configuration
+# CannaPeace - Data Processing & Analysis Parameters
+
+photoperiod:
+  flower_lights_on: "21:00"     # TODO: CONFIRM with Jimmy
+  flower_lights_off: "09:00"    # TODO: CONFIRM with Jimmy
+  timezone: "Asia/Bangkok"
+
+# Time alignment and binning
+align_grid_seconds: 10           # Common time grid for all channels
+ambient_bin_width_c: 2.0         # Bin width for ambient temperature grouping
+
+# Data cleaning - deadband thresholds for event detection
+# (views only - never delete raw data)
+deadband:
+  pressure_bar: 0.2
+  temp_c: 0.2
+
+# Recharge analysis thresholds (initial - tune after first dataset)
+undercharge_thresholds:
+  discharge_temp_delta_c: 5      # C2 higher than C1 by this much suggests undercharge
+  discharge_press_delta_bar: 2   # C2 lower than C1 by this much suggests undercharge
+  min_runtime_minutes: 5         # Minimum compressor runtime to consider valid
+
+# Anomaly detection thresholds
+# IMPORTANT: ALL values must be tuned from Phase-2 EDA + validated against recorded event
+anomaly:
+  # B1: Cross-circuit asymmetry detector (highest value)
+  asymmetry_press_bar: null       # FROM EDA: normal C1-C2 envelope
+  asymmetry_disch_temp_c: null    # FROM EDA: normal temp difference
+  asymmetry_window_minutes: 30    # Sustained divergence duration
+
+  # B2: Instability detector
+  short_cycle_max_per_hour: null  # FROM EDA: normal cycle frequency
+  pressure_variance_threshold: null  # FROM EDA: normal pressure stability
+
+  # B3: Step detector
+  step_press_bar_per_window: null # FROM EDA: abnormal step size
+  step_detection_window_minutes: 5
+
+  # B5: Alert severity thresholds
+  alert_levels:
+    info: "minor_deviation"
+    warning: "sustained_divergence"
+    critical: "severe_anomaly_or_alarm"
+
+# Lights-on load signature detection
+# Thresholds derived in Phase-2 EDA from actual photoperiod transitions
+lights_load_signature:
+  cooling_demand_step: null       # FROM EDA: typical load increase when lights turn on
+  compressor_duty_increase: null  # FROM EDA: duty cycle shift
+  room_temp_step_c: null          # FROM EDA: room temp change
+  detection_window_minutes: 15    # How long after schedule time to look for signature
+
+# Weather data
+weather:
+  primary: "local_sensor"         # Preferred source
+  backup_provider: "open-meteo"   # TODO: CONFIRM commercial licensing!
+  api_endpoints:
+    open_meteo_historical: "https://archive-api.open-meteo.com/v1/archive"
+    open_meteo_forecast: "https://api.open-meteo.com/v1/forecast"
+  cross_check_threshold_c: 5.0    # Flag if local vs API disagree by more than this
+
+# Paths
+paths:
+  workspace: "/Users/jimmy/CannaPeace"
+  project: "/Users/jimmy/CannaPeace/hvac-analytics"
+
+# FBox data schema - expected columns
+fbox_channels:
+  room:
+    - "room_hum_pct"
+    - "room_temp_c"
+    - "room_temp_setpoint_c"
+    - "room_hum_setpoint_pct"
+  state:
+    - "heating_valve_1"
+    - "heating_valve_2"
+    - "comp_1"
+    - "comp_2"
+    - "cooling_valve_1"
+    - "cooling_valve_2"
+  pressure:
+    - "discharge_press_1"
+    - "discharge_press_2"
+  temperature:
+    - "evap_temp_1"
+    - "evap_temp_2"
+    - "discharge_temp_1"
+    - "discharge_temp_2"
+    - "ambient_temp"
+  optional:
+    - "liquid_line_temp_1"  # HIGH PRIORITY: add this sensor!
+    - "liquid_line_temp_2"  # Enables definitive subcooling calculation
+
+# Output formats
+output:
+  parquet_compression: "snappy"
+  duckdb_path: "data/db/cannapeace_hvac.duckdb"
+  report_format: ["markdown", "html"]
+  chart_format: "png"
+  chart_dpi: 150
+
+# Phase execution flags
+phases:
+  run_ingestion: true
+  run_eda: true
+  run_recharge_verdict: true
+  run_anomaly_detection: true
+  run_reports: true

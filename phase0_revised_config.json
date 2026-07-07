@@ -1,0 +1,8 @@
+{
+  "comparison_strategy": "distribution_comparison_within_period",
+  "light_cycle": {
+    "lights_on": "21:00-9:00",
+    "lights_off": "9:00-21:00"
+  },
+  "explanation": "Compare C1 vs C2 pressure distributions for same mode within same environmental period (light cycle), not simultaneous operation"
+}

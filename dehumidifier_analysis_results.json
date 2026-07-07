@@ -1,0 +1,39 @@
+{
+  "analysis_date": "2026-06-08",
+  "scenario_comparison": {
+    "with_dehumidifier": {
+      "scenario": "WITH Dehumidifier",
+      "rh": 56.3,
+      "dew_point": 13.823650111287293,
+      "dehum_power_W": 500,
+      "hvac_power_W": 2456.0,
+      "total_power_W": 2956.0,
+      "comp1_runtime": 100.0,
+      "comp2_runtime": 22.8,
+      "vpd_kPa": 1.29
+    },
+    "without_dehumidifier": {
+      "scenario": "WITHOUT Dehumidifier",
+      "rh": 57.2,
+      "dew_point": 14.068299480518608,
+      "dehum_power_W": 0,
+      "hvac_power_W": 3516.0,
+      "total_power_W": 3516.0,
+      "comp1_runtime": 100.0,
+      "comp2_runtime": 75.8,
+      "vpd_kPa": 1.2
+    }
+  },
+  "energy_savings": {
+    "power_difference_W": -560.0,
+    "percent_savings": -15.927189988623436,
+    "daily_cost_savings_USD": 1.6128,
+    "monthly_cost_savings_USD": 48.384
+  },
+  "verdict": {
+    "thermodynamically_sound": true,
+    "recommendation": "Turn dehumidifier ON and lower humidity setpoint to 50%",
+    "expected_comp2_runtime": "30-40%",
+    "expected_vpd_kPa": "1.30-1.35"
+  }
+}

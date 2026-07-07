@@ -1,0 +1,17 @@
+Period,Total_Load_Without_%,Total_Load_With_%,Load_Reduction_%,Comp1_Without_%,Comp1_With_%,Humidity_Without_%,Humidity_With_%,Humidity_Improvement_%
+"AC Mode
+Lights Off",200.0,148.2,51.80000000000001,100.0,48.2,55.5,55.0,0.5
+"DEHUM Mode
+Lights Off",200.0,151.1,48.900000000000006,100.0,51.1,57.4,57.0,0.3999999999999986
+"AC Mode
+Lights On
+(Before Feed)",200.0,200.0,0.0,100.0,100.0,55.2,55.1,0.10000000000000142
+"AC Mode
+Lights On
+(After Feed)",200.0,200.0,0.0,100.0,100.0,56.4,55.0,1.3999999999999986
+"DEHUM Mode
+Lights On
+(Before Feed)",200.0,200.0,0.0,100.0,100.0,56.7,56.5,0.20000000000000284
+"DEHUM Mode
+Lights On
+(After Feed)",200.0,200.0,0.0,100.0,100.0,56.8,56.8,0.0
