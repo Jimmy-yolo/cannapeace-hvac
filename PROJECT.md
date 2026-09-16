@@ -12,8 +12,8 @@
 
 ## Tech Stack
 
-- Python + Pandas + DuckDB
-- 1.86M records (Apr-Jun 2026)
+- Python + Pandas + Parquet (DuckDB for ad-hoc queries)
+- 3.36M records (Apr 22 – Sep 16, 2026; machine stopped Jul 6)
 - Local analysis only
 
 ## Quick Commands
@@ -31,5 +31,9 @@ cat data/reports/system_health_*.json | jq
 
 ## Data
 
-- Database: `data/db/hvac.duckdb` (567MB, excluded from git)
+- **Dataset:** `data/aligned/aligned_with_modes.parquet` — the single source of truth,
+  read by every analysis script. Apr 22 → Sep 16, 2026.
+- **State:** `docs/state/CURRENT_TASK.md` ← read this first
+- **Ingest:** `python3 scripts/ingest_hvac_exports.py '<glob>.xlsx'`
 - Reports: `data/reports/`
+- ⛔ `data/db/hvac.duckdb` (567MB) is STALE (last written Jun 3) and read by nothing.
