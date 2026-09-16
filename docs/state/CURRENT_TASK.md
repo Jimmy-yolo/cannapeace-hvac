@@ -1,4 +1,21 @@
-# CURRENT TASK — HVAC data completeness
+# CURRENT TASK — strawberry conversion feasibility
+
+## 🔴 ANSWER (2026-09-16): the GAS-20D does NOT fit Scenarios A or B
+
+Saturates at setpoint **20.6 °C** with lights on. 18 °C needs 120 % duty, 15 °C
+needs 144 %. **103 of 653 logged lit hours already ran at 100 % duty**, including
+53 h at a 24 °C setpoint. Only **Scenario C (24–25 °C air + crown cooling)** is
+feasible — and it is feasible across 100 % of the unmeasured-assumption space.
+
+Report: `hvac_analysis_report.md`. Reproduce: `python3 analysis/run_all.py`.
+Measured: UA **0.850 kW/K**, τ_slow **26.2 h**, latent **43–74 %** of compressor time.
+Blocking inputs still needed from Jimmy: **room length, ceiling height, wall areas**;
+a **3-phase power meter** (every kWh here is nameplate × duty, never metered).
+Also: 24 × FC-E8000 gives **389 PPFD** over 138 m², not 480 (needs ~30 fixtures).
+
+---
+
+# Data completeness
 
 **Updated:** 2026-09-16 (verified against the parquet this session)
 
