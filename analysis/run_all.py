@@ -117,6 +117,11 @@ def main():
     print(f"\nwrote {out}")
     print(f"charts -> {lib.FIGS}")
 
+    # Part II: strawberry scenarios (sections 9-15 of the report)
+    print("\n=== Part II: strawberry scenarios ===")
+    import run_followup
+    run_followup.main()
+
 
 if __name__ == "__main__":
     main()

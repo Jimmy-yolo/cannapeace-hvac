@@ -1,11 +1,29 @@
 # GAS-20D → indoor strawberry conversion: HVAC & thermal analysis
 
+**Part I** (§1–8): measured characterisation of the room and machine.
+**Part II** (§9–15): strawberry scenarios, revised verdict.
+
 Room: Samut Prakan, TH. Source: `data/aligned/aligned_with_modes.parquet`.
 Reproduce: `python3 analysis/run_all.py` (+ `analysis/sensitivity.py`).
-Charts: `analysis/figs/`. Machine-readable: `analysis/results.json`.
+Charts: `analysis/figs/`. Machine-readable: `analysis/results.json`,
+`analysis/results_followup.json`. Part II: `python3 analysis/run_followup.py`.
 
-**Headline: the GAS-20D cannot hold 18 °C — let alone 15 °C — with 24 lights running.
-It saturates at 20.6 °C. Scenario C is the only one that fits the machine you own.**
+> ## ⚠️ VERDICT REVISED 2026-09-16 — see Part II
+>
+> Part I below concluded the machine saturates at 20.6 °C. **That ceiling was
+> contaminated by the cannabis crop's latent load**, which the measurements show was
+> **38–54 % of compressor time**. Strawberries transpire far less. Re-running the
+> analysis with the latent load separated (Part II §9) moves the lit-period ceiling to
+> **17.6–20.1 °C**, so **18 °C is reachable — but only with wall insulation AND the
+> LED drivers moved out of the room AND a latent load at or below 7 %.**
+>
+> Part I is kept unedited as the audit trail. **Where Part I and Part II disagree,
+> Part II is correct** — it uses the supplied room geometry instead of a guessed wall
+> share, and it corrects a 1.9 kW supply-fan gain that Part I wrongly charged to the
+> envelope.
+
+**Part I headline (superseded): the GAS-20D cannot hold 18 °C with 24 lights running.
+It saturates at 20.6 °C.**
 
 ---
 
@@ -142,6 +160,9 @@ across ΔT 14.65 K to the 29.54 °C neighbouring space →
 
 > **UA ≈ 0.85 kW/K**  (0.850, from 12.46 kW / 14.65 K)
 
+> ⚠️ **Superseded by Part II §9.** This figure charges the 1.9 kW supply-fan gain to the
+> envelope. Corrected value: **UA = 0.721 kW/K**.
+
 **Diurnal (unlit days only, so lighting cannot contaminate it):** peak **17:00** at 55.1 %
 duty, minimum **22:00–23:00** at 46.6 %; 03:00–08:00 sits at 49.6–50.9 %.
 Your evening soak-through observation is **confirmed**. Your "lowest 03:00–07:00" is
@@ -151,10 +172,10 @@ because τ_slow = 26 h damps it.
 **Envelope cost at the measured UA:** 0.85 kW/K × ΔT, continuous.
 At 18 °C: 9.8 kW → **235 kWh/day thermal**. At 15 °C: 12.4 kW → **298 kWh/day thermal**.
 
-**Insulation** (U 2.5 → 0.45 W/m²K on the two block walls) is modelled as a fraction
-`WALL_SHARE_OF_UA` of total UA, default 0.60. **I cannot convert this to absolute m²
-without the room length and ceiling height — please send them** (§8 table). At the
-default share, UA falls 0.85 → **0.44 kW/K**, worth **60–80 kWh/day** electrical.
+**Insulation** — ⚠️ **superseded by Part II §9.** Part I guessed `WALL_SHARE_OF_UA = 0.60`
+for want of room dimensions. With the geometry now supplied, the two block walls are
+**36 %** of envelope UA, and insulating them moves UA **0.721 → 0.511 kW/K**, not
+0.85 → 0.44. The insulation case is materially weaker than Part I claimed.
 
 ---
 
@@ -207,6 +228,11 @@ reach 15 °C with this envelope and this light load, so no pull-down time is quo
 ---
 
 ## 6. Scenario energy and cost
+
+> ⚠️ **The table below is frozen at the Part I parameters** (UA 0.850 kW/K, wall share
+> 0.60, fan gain charged to envelope, 24 fixtures). `run_all.py` now regenerates these
+> rows with the corrected Part II parameters, so the live output differs by ~1–2 %.
+> **Use Part II §11 for decisions.** This table is retained to show what changed.
 
 `analysis/scenarios.py` — all parameters at the top. TOU: lights 22:00–09:00 off-peak
 @2.58, on-peak 09:00–22:00 @4.10, weekend all off-peak. Flat 4.15 THB/kWh.
@@ -313,3 +339,264 @@ insulated, against 19.2 kW planned.
 **Minimum logging to close this properly:** 3-phase power (1-min) + condensate flow
 (1-min) + warehouse T/RH (5-min) + lighting CT (1-min), **4 weeks, with the crop in**.
 Without the power meter every THB figure here carries the nameplate's error, unquantified.
+
+---
+---
+
+# PART II — Strawberry scenarios (revised)
+
+Reproduce: `python3 analysis/run_followup.py`. Charts `figs/f*.png`.
+Everything here uses the supplied room geometry (**10.0 × 12.5 × 4.1 m, 512 m³**)
+and the corrected envelope fit.
+
+## 9. Sensible vs latent — why the Part I ceiling was wrong
+
+**Two corrections to Part I, both material:**
+
+1. **The supply fan is an internal gain, not envelope.** Its 1.9 kW motor sits in the
+   airstream and runs continuously. Part I charged it to the envelope. Of the 12.46 kW
+   removed at the unlit 15 °C hold, **1.90 kW was the fan** and only **10.56 kW** was
+   envelope → **UA = 0.721 kW/K**, not 0.850.
+2. **Block walls are 36 % of UA, not the 60 % guessed.** With real areas
+   (102.5 m² block, 82 m² panel ends): block-wall conduction = 0.256 kW/K.
+
+**Measured decomposition of the lit regimes** (`figs/f1_ceiling.png`):
+
+| lit setpoint | h | sensible duty % | latent duty % | kW sensible | kW latent | latent share |
+|---|---|---|---|---|---|---|
+| 21 °C | 38.8 | 57.3 | 35.0 | 20.3 | 9.8 | **37.9 %** |
+| 22 °C | 116.7 | 49.8 | 37.6 | 18.0 | 10.8 | **43.1 %** |
+| 23 °C | 135.9 | 45.5 | 35.5 | 16.9 | 10.4 | **43.8 %** |
+| 24 °C | 168.5 | 37.5 | 44.3 | 14.4 | 13.4 | **54.1 %** |
+| 25 °C | 103.0 | 33.3 | 29.4 | 13.1 | 9.1 | 46.9 % |
+
+**Your §0 reframe is confirmed by the data.** Nearly half the plant's time went to
+dehumidification for the cannabis crop. The lit regimes are an **upper bound** on
+strawberry demand, exactly as you framed it.
+
+### Lit-period ceiling (total duty ≤ 85 %, i.e. 15 % plant margin)
+
+*Interpretation: the margin is applied to sensible + latent together, because they
+share one compressor plant. Sensible-only duty is in `results_followup.json`.*
+
+| case | latent 5 % | latent 10 % | latent 20 % |
+|---|---|---|---|
+| as-is, drivers in | 20.3 °C | 21.3 °C | 23.4 °C |
+| as-is, drivers out | 19.2 °C | 20.1 °C | 22.2 °C |
+| insulated, drivers in | 18.9 °C | 19.9 °C | 22.3 °C |
+| **insulated, drivers out** | **17.6 °C** | **18.6 °C** | 20.9 °C |
+
+> **18 °C lit is reachable only in the bottom-left corner of this table.** Solving for the
+> exact threshold: an 18.0 °C ceiling needs **latent ≤ 7 %** with insulation + drivers out,
+> or **≤ 1 %** with insulation alone. **Without insulation it is unreachable at any latent
+> fraction.** At latent 20 % it is out of reach in every configuration. **The latent fraction is ASSUMED — it is now the single
+> largest uncertainty in the whole study, and only a condensate meter can close it.**
+
+## 10. Lighting
+
+FC-E8000 confirmed **0–10 V dimmable**, 2,240 µmol/s, 2.8 µmol/J, daisy-chain max 30
+(48 fixtures = **2 chains**). Driver topology is **not published**, so the efficacy
+gain at part drive is assumed, not verified.
+
+| case | canopy m² | kW in | PPF µmol/s | **PPFD** | **DLI @11 h** |
+|---|---|---|---|---|---|
+| old cannabis 24 @100 %, 4 tiers | 138.2 | 19.2 | 53,760 | 389 | 15.4 |
+| **plan: 48 @50 %, 4 tiers** | 138.2 | 19.2 | 56,986 | **412** | **16.3** |
+| alt: 48 @50 %, 3 tiers | 103.7 | 19.2 | 56,986 | **550** | **21.8** |
+
+Assumes **+6 % µmol/J at 50 % drive** (flagged) and that all photons land on canopy —
+an optimistic upper bound; real PPFD will be lower at rack edges.
+
+- **480 PPFD on 4 tiers needs 58 % dimming = 22.4 kW**, not 19.2 kW. That pushes the
+  ceiling up by roughly 0.7 °C and is the cost of your stated PPFD target.
+- **3-tier gives 550 PPFD and DLI 21.8** at the same 19.2 kW. **PPFD > 450 assumes
+  CO₂ 800–1,000 ppm**, which is not currently dosed or logged. No yield modelling here.
+- **Drivers outside the room removes 9 % of 19.2 kW = 1.73 kW** (assumed) from the
+  room. Effect: **ceiling improves 1.1–1.4 °C**. This is the cheapest lever you have.
+
+## 11. Scenario D — target operating profile
+
+Lights 22:00–09:00 (11 h, **entirely off-peak**), crown loop 3 kW_th at COP 3 running
+in the same window. **Because the lit period is already off-peak, Scenario D needs no
+storage tank** — the 4.2 m³ tank from Part I §6 applies only to Scenario C.
+
+Latent 10 %, drivers outside (`figs/f3_scenarioD_cost.png`):
+
+| walls | lit °C | dark °C | kWh/day | THB/day | **THB/year** | on-peak max kW | worst duty | pull-down |
+|---|---|---|---|---|---|---|---|---|
+| insul. | 25 | 20 | 482.7 | 1,344 | **490,488** | 7.0 | 0.61 | 7 min |
+| insul. | 23 | 20 | 495.7 | 1,377 | 502,647 | 7.0 | 0.68 | 7 min |
+| insul. | 22 | 19 | 509.8 | 1,422 | 518,855 | 7.5 | 0.71 | 5 min |
+| insul. | 21 | 18 | 524.9 | 1,469 | 536,072 | 8.1 | 0.75 | 5 min |
+| as-is | 22 | 19 | 541.8 | 1,528 | 557,741 | 9.2 | 0.76 | 7 min |
+| as-is | 21 | 18 | 561.4 | 1,590 | 580,348 | 10.0 | 0.81 | 7 min |
+| **C′ ref** | **25** | **25** | **452.5** | **1,233** | **450,036** | **4.6** | 0.6 | — |
+
+**Latent sensitivity on 22/19 °C:** as-is 543k (5 %) / 558k (10 %) / **592k (20 %, margin
+FAILS at 0.86)**; insulated 507k / 519k / 548k. Insulation is what keeps the 20 % latent
+case inside margin.
+
+**Pull-down** uses your specified method (τ_fast + surplus capacity), with
+C_fast = τ_fast × UA = **0.843 kWh/K**. Air reaches the dark setpoint in **3–15 min**.
+
+> ⚠️ **That number is the air, not the room.** τ_slow = 26.2 h means the concrete never
+> equilibrates on a 24 h cycle — it sits at an intermediate temperature and damps the
+> swing. The air setpoint is met quickly; the *mass* is still discharging heat for
+> hours, which is why the dark-period duty stays elevated. Do not read 5 minutes as
+> "the room is at 18 °C".
+
+## 12. VPD and condensation
+
+VPD computed from air temperature — **leaf temperature is not logged**, so this is
+air VPD. Under LED, leaf sits slightly above air, so true leaf VPD is marginally
+higher than shown. `figs/f4_vpd.png`.
+
+**Measured regimes:** `lights-on@22` 1.13 kPa, `@23` 1.19, `@24` 1.19, `@25` 0.84,
+`unlit@28` 0.84 — the cannabis room ran near the top of the strawberry lit band.
+
+| phase | setpoint | RH | VPD kPa | dew point °C | in band |
+|---|---|---|---|---|---|
+| lit | 21 | 60 / 65 | 0.99 / 0.87 | 12.9 / 14.2 | ✅ |
+| lit | 22 | 60 / 65 | 1.06 / 0.93 | 13.9 / 15.1 | ✅ |
+| lit | 23 | 60 / 65 | 1.12 / 0.98 | 14.8 / 16.1 | ✅ |
+| lit | **25** | **60** | **1.27** | 16.7 | ❌ **above 1.2** |
+| lit | 25 | 65 | 1.11 | 18.0 | ✅ |
+| dark | 18 | 60 / 70 | 0.83 / **0.62** | 10.1 / 12.4 | ✅ (70 % at the floor) |
+| dark | 19 | 60 / 70 | 0.88 / 0.66 | 11.1 / 13.4 | ✅ |
+| dark | 20 | 60 / 70 | 0.94 / 0.70 | 12.0 / 14.4 | ✅ |
+
+Only one combination fails: **lit 25 °C at 60 % RH = 1.27 kPa**. Run 25 °C at 65 % RH.
+
+**Chilled-water minimum temperature.** Room dew point at the lit setpoints is
+**12.9–18.0 °C**. Your intended 12–15 °C water is **below dew point at every lit
+setpoint** — exposed tubing, manifolds and headers **will condense**.
+
+> **Burying the loop 1–2 cm in substrate makes the constraint moot for the buried run**
+> — that surface is in wet substrate, where condensation is meaningless. It does **not**
+> help the exposed parts: **insulate every header, manifold, riser and valve**, or hold
+> water ≥ **14.2 °C** (21 °C/65 %) / **16.1 °C** (23 °C/65 %). Insulating the exposed
+> runs is far cheaper than giving up loop ΔT.
+
+## 13. Compressor cycling and what killed the machine
+
+**Current:** comp-1 **59.2 starts/day** (mean 16.2 min on, **median 5.2**), comp-2
+**68.3 starts/day** (mean 11.8, median 4.7). The median near 5 min says the unit is
+sitting on its anti-short-cycle timer.
+
+**Your target of <20 starts/day at ±1 K is not achievable with this plant.** With
+C_fast = 0.843 kWh/K, the deadband required is:
+
+| setpoint | 20 starts/day | 30 starts/day | 40 starts/day |
+|---|---|---|---|
+| 22 °C | ±5.05 K | ±3.37 K | ±2.53 K |
+| 21 °C | ±4.98 K | ±3.32 K | ±2.49 K |
+
+±5 K is agronomically unusable. **The room has too little fast thermal mass relative to
+the load for on/off compressors to cycle slowly.** Real options, in order of cost:
+
+1. **Lead/lag with a long minimum run time** — run one compressor as continuous base
+   load and cycle only the second. Partly happening already (both ran 52 % of lit time).
+2. **Chilled-water buffer** — adds capacitance to the control loop; the crown-loop tank
+   could serve double duty.
+3. **Digital scroll / inverter compressor** — real capacity modulation. Not retrofittable
+   to this unit.
+
+Accept **~40 starts/day at ±2.5 K**, or add modulation. There is no free fix.
+
+### 🔴 What killed it — hypothesis, not proof
+
+`figs/f6_forensics.png`. As the setpoint was walked down 23 → 15 °C, the evaporators
+were driven to freezing:
+
+| date | setpoint | evap-1 daily min | evap-2 h/day below 0 °C | comp-1 h run | comp-2 h run |
+|---|---|---|---|---|---|
+| Jun 25 | 22 °C | 3.2 °C | 0.00 | 16.0 | 19.5 |
+| Jun 29 | 21 °C | 1.4 °C | 0.00 | 23.9 | 19.3 |
+| Jul 1 | 20 °C | 1.0 °C | 0.00 | 17.3 | 15.9 |
+| Jul 3 | 16 °C | 0.1 °C | 0.08 | **4.9** | 17.1 |
+| Jul 4 | 15 °C | 0.9 °C | **0.44** | **1.0** | **22.6** |
+| Jul 6 | 15 °C | −0.1 °C | 0.33 | 1.3 | 9.0 |
+
+Sequence: setpoint driven to 15 °C → suction/evaporator falls to **0 to −0.8 °C** →
+circuit 1 drops out (runs 1.0 h on Jul 4 vs 22.6 h for circuit 2) → circuit 2 carries
+everything at sub-zero evaporator → both stop 2026-07-06 (comp-2 08:59, comp-1 10:15).
+
+**This is consistent with coil icing and a low-pressure trip, and it is the clearest
+warning in the dataset against running this machine at a low room setpoint.**
+
+⚠️ **It cannot be confirmed, because `discharge_press_1/2` stop on 2026-07-01** — the
+pressure export file for Jul 1–8 was never pulled. **That file is still on the
+controller and would probably settle the cause.** It is the single highest-value
+outstanding data item.
+
+## 14. What this dataset cannot tell us about strawberry quality
+
+| quantity | status | how to get it |
+|---|---|---|
+| crown temperature | **not measured** | 4–6 buried PT100 per zone, 1-min |
+| fruit temperature | **not measured** | IR spot or fine thermocouple on fruit, 1-min |
+| leaf VPD | **derived (§12)** — air VPD only | IR leaf-temp sensor to make it true leaf VPD |
+| latent load with a strawberry crop | **not measured — dominant unknown** | **condensate flow meter on the drain, 1-min, 2 weeks with crop** |
+| PPFD uniformity per tier | **not measured** | PPFD meter, 9-point grid per tier |
+| CO₂ | **not measured** | NDIR sensor; required if PPFD > 450 |
+| pest pressure | **not in data** | scouting log |
+
+**Minimum logging before committing capital — 4 weeks, first trial rack planted:**
+
+| channel | resolution | why |
+|---|---|---|
+| 3-phase power meter on the HVAC | 1-min | every kWh/THB here is nameplate × duty, never metered |
+| CT clamp on the lighting circuit | 1-min | confirms dimming and driver losses |
+| **condensate flow meter** | 1-min | pins the latent fraction — the biggest swing factor |
+| warehouse T/RH | 5-min | T∞ is currently one number from a single free-rise fit |
+| PPFD map per tier | once, 9-point | validates 412 vs 480 |
+| **the missing Jul 1–8 pressure export** | — | likely explains the failure |
+
+## 15. Findings
+
+**(a) Lit-period setpoint holdable with 15 % margin, drivers outside:**
+
+| | latent 5 % | latent 10 % | latent 20 % |
+|---|---|---|---|
+| as-is | 19.2 °C | 20.1 °C | 22.2 °C |
+| **insulated** | **17.6 °C** | **18.6 °C** | 20.9 °C |
+
+18 °C needs insulation + drivers out + **latent ≤ 7 %** — and is unreachable at any
+latent fraction without insulation. **It is a corner case, not a comfortable design
+point.** 21–23 °C lit is robust across every assumption.
+
+**(b) Annual cost vs C′** (latent 10 %, drivers out, TOU):
+
+| option | THB/year | vs C′ insulated |
+|---|---|---|
+| C′ 25 °C 24/7, insulated | **450,036** | — |
+| C′ 25 °C 24/7, as-is | 465,899 | +15,863 |
+| D 25/20, insulated | 490,488 | +40,452 |
+| D 22/19, insulated | 518,855 | +68,819 |
+| D 21/18, insulated | 536,072 | +86,036 |
+| D 21/18, as-is | 580,348 | +130,312 |
+
+**The cool-dark strategy costs 69k–86k THB/year over flat 25 °C.** Whether the brix and
+fruit-quality gain is worth ~15–19 % on the energy bill is a horticultural call, not one
+this dataset can make.
+
+**(c) Pull-down after lights-off, recommended pair (22 → 19 °C, insulated): ~5 minutes
+of air temperature**, but see the §11 warning — the concrete mass keeps discharging for
+hours and the true room does not settle within the dark period.
+
+**(d) Three cheapest actions, ranked by °C of lit-period headroom per THB:**
+
+| # | action | headroom gained | cost | why it ranks here |
+|---|---|---|---|---|
+| 1 | **Move all 48 LED drivers outside the room** | **+1.1 to +1.4 °C** | cable + labour only | no plant, no fabric work; the fixtures are already detachable |
+| 2 | **Seal infiltration / trim fresh air** | est. **+0.7 to +1.0 °C** | sealing + damper | **41 % of envelope UA (0.294 kW/K ≈ 1.7 ACH) is unexplained by fabric** — halving it saves 0.147 kW/K, ~70 % of what full wall insulation buys, for a fraction of the cost. **Measure it first with a blower door.** |
+| 3 | **50 mm closed cell on the two block walls** | **+1.6 °C** | 102.5 m² | biggest single gain but the most capital; saves 0.210 kW/K |
+
+Note the ranking changed from Part I: with real geometry, **the block walls are only
+36 % of the envelope heat path**, so insulation is no longer the automatic first move.
+Actions 1 and 2 are cheaper per °C and should be done first — and action 2 needs a
+measurement before you spend anything.
+
+**And the standing constraint:** the machine most plausibly died from being run at
+15 °C. Whatever setpoint you choose, **do not walk it below ~18 °C**, and fit a suction
+pressure / evaporator low-limit alarm before restarting.

@@ -23,18 +23,32 @@ CANOPY_M2         = 2*(1.2*4.8) + 2*(1.2*9.6)          # footprint 34.56 m2
 CANOPY_M2        *= 4                                   # 4 tiers -> 138.24 m2
 TARGET_PPFD       = 480.0    # umol/m2/s requested
 
+# --- room geometry (SUPPLIED by Jimmy 2026-09-16) ---
+ROOM_W_M          = 10.0     # given in the original brief
+ROOM_L_M          = 12.5     # supplied: "12-13 m", midpoint
+ROOM_H_M          = 4.1      # supplied: "4.0-4.2 m", midpoint
+AREA_BLOCK_WALL   = 2 * ROOM_L_M * ROOM_H_M      # the two LONG walls, bare block
+AREA_PANEL_END    = 2 * ROOM_W_M * ROOM_H_M      # the two SHORT ends, insulated panel
+AREA_FLOOR        = ROOM_W_M * ROOM_L_M
+AREA_CEILING      = AREA_FLOOR
+ROOM_VOL_M3       = ROOM_W_M * ROOM_L_M * ROOM_H_M
+
 # --- envelope (MEASURED, see calibrate()) ---
-T_NEIGHBOUR_C     = 29.67    # (MEASURED) free-rise asymptote, Jul 6-8
+T_NEIGHBOUR_C     = 29.54    # (MEASURED) free-rise asymptote, Jul 6-8
+TAU_FAST_H        = 1.17     # (MEASURED) fast mode of the 2-exp free-rise fit
+TAU_SLOW_H        = 26.24    # (MEASURED) slow mode -- the concrete mass
 UA_KW_PER_K       = None     # (MEASURED) set by calibrate()
 LATENT_FRACTION   = 0.25     # (ASSUMED) plant transpiration share of load
-WALL_SHARE_OF_UA  = 0.60     # (ASSUMED) fraction of total UA passing through
-                             # the two uninsulated block walls. Needs wall
-                             # areas + room dimensions to pin down; the
-                             # insulation saving scales almost linearly with
-                             # it, so it is the single most load-bearing
-                             # assumption in the insulation case.
+# WALL_SHARE_OF_UA is RETIRED. Superseded by the supplied geometry: the block
+# wall contribution is now computed from actual m2 (see ua_insulated()).
 U_BARE            = 2.5      # W/m2K, block + skim (ASSUMED, standard value)
 U_INSULATED       = 0.45     # W/m2K, + 50 mm closed cell (ASSUMED)
+
+# The supply fan sits in the airstream, so its motor power lands in the room as
+# heat and the coil must remove it. It runs whenever the unit is enabled, so it
+# is a CONSTANT internal gain that the previous UA fit wrongly attributed to
+# the envelope.
+FAN_GAIN_KW       = NP.SUPPLY_FAN_KW
 
 # --- machine ---
 SENS_CAP_27_KW    = NP.COOLING_SENSIBLE_KW     # 41.4 kW at 27 C return
@@ -77,10 +91,27 @@ def calibrate(df):
     duty_dh = unlit.duty_dh.mean() / 100
     t_room = unlit.room_temp_c.mean()
     load_kw = duty_ac * sensible_capacity(t_room)
-    UA_KW_PER_K = load_kw / (T_NEIGHBOUR_C - t_room)
+    # Subtract the supply-fan heat before attributing the remainder to the
+    # envelope, otherwise UA is inflated by a constant 1.9 kW.
+    env_kw = load_kw - FAN_GAIN_KW
+    UA_KW_PER_K = env_kw / (T_NEIGHBOUR_C - t_room)
     return dict(duty_ac=duty_ac, duty_dh=duty_dh, t_room=float(t_room),
                 cap_kw=sensible_capacity(t_room), load_kw=load_kw,
-                UA=UA_KW_PER_K, dT=T_NEIGHBOUR_C - t_room)
+                fan_kw=FAN_GAIN_KW, env_kw=env_kw,
+                UA=UA_KW_PER_K, dT=T_NEIGHBOUR_C - t_room,
+                UA_block_only=AREA_BLOCK_WALL * U_BARE / 1000,
+                block_share=(AREA_BLOCK_WALL * U_BARE / 1000) / UA_KW_PER_K)
+
+
+def ua_insulated():
+    """UA after 50 mm closed cell on the two long block walls ONLY.
+
+    Uses the supplied geometry, not a guessed share. Everything else in the
+    envelope (panel ends, slab, ceiling, infiltration, fresh air) is unchanged,
+    and it is the DOMINANT term -- see report section 5.
+    """
+    delta = AREA_BLOCK_WALL * (U_BARE - U_INSULATED) / 1000.0   # kW/K removed
+    return max(UA_KW_PER_K - delta, 0.02), delta
 
 
 def lighting_check():
@@ -94,13 +125,7 @@ def lighting_check():
 
 def hourly_model(t_light_c, t_dark_c, crown=False, insulated=False, dim=DIM):
     """One 24 h profile. Returns a DataFrame, one row per hour."""
-    if insulated:
-        # Only the two block walls get insulated. The rest of the envelope
-        # (slab, ceiling, partitions, infiltration) is unchanged.
-        ua = UA_KW_PER_K * ((1 - WALL_SHARE_OF_UA)
-                            + WALL_SHARE_OF_UA * U_INSULATED / U_BARE)
-    else:
-        ua = UA_KW_PER_K
+    ua = ua_insulated()[0] if insulated else UA_KW_PER_K
     light_kw = N_FIXTURES * FIXTURE_KW * dim
     rows = []
     for h in range(24):
