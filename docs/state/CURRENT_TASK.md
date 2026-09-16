@@ -1,17 +1,35 @@
 # CURRENT TASK — strawberry conversion feasibility
 
-## 🔴 ANSWER (2026-09-16): the GAS-20D does NOT fit Scenarios A or B
+## 🔴 ANSWER (revised 2026-09-16, Part II) — depends on the LATENT load
 
-Saturates at setpoint **20.6 °C** with lights on. 18 °C needs 120 % duty, 15 °C
-needs 144 %. **103 of 653 logged lit hours already ran at 100 % duty**, including
-53 h at a 24 °C setpoint. Only **Scenario C (24–25 °C air + crown cooling)** is
-feasible — and it is feasible across 100 % of the unmeasured-assumption space.
+The earlier "saturates at 20.6 °C" verdict was **contaminated by the cannabis crop's
+latent load (measured 38–54 % of compressor time)**. With strawberry-level latent:
 
-Report: `hvac_analysis_report.md`. Reproduce: `python3 analysis/run_all.py`.
-Measured: UA **0.850 kW/K**, τ_slow **26.2 h**, latent **43–74 %** of compressor time.
-Blocking inputs still needed from Jimmy: **room length, ceiling height, wall areas**;
-a **3-phase power meter** (every kWh here is nameplate × duty, never metered).
-Also: 24 × FC-E8000 gives **389 PPFD** over 138 m², not 480 (needs ~30 fixtures).
+| lit ceiling, 15 % margin | latent 5 % | latent 10 % | latent 20 % |
+|---|---|---|---|
+| as-is, drivers in | 20.3 °C | 21.3 °C | 23.4 °C |
+| **insulated + drivers out** | **17.6 °C** | 18.6 °C | 20.9 °C |
+
+**18 °C lit needs insulation + LED drivers outside + latent ≤ 7 %. Unreachable at any
+latent fraction without insulation.** 21–23 °C lit is robust everywhere.
+🔴 **The latent fraction is ASSUMED — a condensate meter is the one test that settles it.**
+
+Corrections to Part I: supply fan is a 1.9 kW internal gain → **UA = 0.721 kW/K** (not
+0.850); with the supplied geometry (10 × 12.5 × 4.1 m) the block walls are **36 % of
+envelope UA**, not 60 %. **41 % of UA (~1.7 ACH) is unexplained by fabric — sealing may
+beat insulation per THB, but needs a blower-door test first.**
+
+Cost (latent 10 %, TOU): C′ 25 °C 24/7 insulated **450k THB/yr**; D 22/19 insulated
+519k; D 21/18 insulated 536k. **Cool-dark costs 69–86k THB/yr.**
+
+⚠️ **Probable cause of the failure:** setpoint walked to 15 °C → evaporators to 0/−0.8 °C
+→ circuit 1 dropped out Jul 4 → both stopped Jul 6. Consistent with coil icing.
+**Do not run below ~18 °C. Fit a low-suction alarm before restarting.**
+Unconfirmable: the **Jul 1–8 pressure export was never pulled and is still on the
+controller** — highest-value outstanding data item.
+
+Report: `hvac_analysis_report.md` (Part I §1–8 measured, Part II §9–15 scenarios).
+Reproduce: `python3 analysis/run_all.py`.
 
 ---
 
