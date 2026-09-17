@@ -1,0 +1,888 @@
+{
+  "plant_states": [
+    {
+      "plant": "COOL+OFF",
+      "hours": 594.23,
+      "pct": 32.85
+    },
+    {
+      "plant": "DEHUM+OFF",
+      "hours": 524.37,
+      "pct": 28.99
+    },
+    {
+      "plant": "COOL+DEHUM",
+      "hours": 331.34,
+      "pct": 18.32
+    },
+    {
+      "plant": "DEHUM+DEHUM",
+      "hours": 152.8,
+      "pct": 8.45
+    },
+    {
+      "plant": "OFF+OFF",
+      "hours": 147.26,
+      "pct": 8.14
+    },
+    {
+      "plant": "COOL+COOL",
+      "hours": 51.75,
+      "pct": 2.86
+    },
+    {
+      "plant": "OFF+OTH",
+      "hours": 6.48,
+      "pct": 0.36
+    },
+    {
+      "plant": "DEHUM+OTH",
+      "hours": 0.6,
+      "pct": 0.03
+    },
+    {
+      "plant": "OTH+OTH",
+      "hours": 0.11,
+      "pct": 0.01
+    }
+  ],
+  "plant_by_regime": [
+    {
+      "regime": "lights-on@21",
+      "COOL+COOL": 17.5,
+      "COOL+DEHUM": 63.3,
+      "COOL+OFF": 13.4,
+      "DEHUM+DEHUM": 1.7,
+      "DEHUM+OFF": 1.5,
+      "DEHUM+OTH": 0.0,
+      "OFF+OFF": 2.6,
+      "OFF+OTH": 0.0,
+      "OTH+OTH": 0.0
+    },
+    {
+      "regime": "lights-on@22",
+      "COOL+COOL": 10.2,
+      "COOL+DEHUM": 58.5,
+      "COOL+OFF": 19.7,
+      "DEHUM+DEHUM": 5.4,
+      "DEHUM+OFF": 5.3,
+      "DEHUM+OTH": 0.0,
+      "OFF+OFF": 0.9,
+      "OFF+OTH": 0.0,
+      "OTH+OTH": 0.0
+    },
+    {
+      "regime": "lights-on@23",
+      "COOL+COOL": 12.1,
+      "COOL+DEHUM": 42.4,
+      "COOL+OFF": 24.4,
+      "DEHUM+DEHUM": 7.6,
+      "DEHUM+OFF": 13.3,
+      "DEHUM+OTH": 0.0,
+      "OFF+OFF": 0.2,
+      "OFF+OTH": 0.0,
+      "OTH+OTH": 0.0
+    },
+    {
+      "regime": "lights-on@24",
+      "COOL+COOL": 3.6,
+      "COOL+DEHUM": 41.2,
+      "COOL+OFF": 25.5,
+      "DEHUM+DEHUM": 18.0,
+      "DEHUM+OFF": 9.9,
+      "DEHUM+OTH": 0.0,
+      "OFF+OFF": 1.6,
+      "OFF+OTH": 0.0,
+      "OTH+OTH": 0.0
+    },
+    {
+      "regime": "lights-on@25",
+      "COOL+COOL": 1.2,
+      "COOL+DEHUM": 15.4,
+      "COOL+OFF": 48.8,
+      "DEHUM+DEHUM": 9.2,
+      "DEHUM+OFF": 25.0,
+      "DEHUM+OTH": 0.0,
+      "OFF+OFF": 0.4,
+      "OFF+OTH": 0.0,
+      "OTH+OTH": 0.0
+    },
+    {
+      "regime": "lights-on@26",
+      "COOL+COOL": 0.1,
+      "COOL+DEHUM": 0.2,
+      "COOL+OFF": 60.4,
+      "DEHUM+DEHUM": 0.0,
+      "DEHUM+OFF": 36.9,
+      "DEHUM+OTH": 0.0,
+      "OFF+OFF": 2.3,
+      "OFF+OTH": 0.0,
+      "OTH+OTH": 0.0
+    },
+    {
+      "regime": "lights-on@27",
+      "COOL+COOL": 0.0,
+      "COOL+DEHUM": 0.0,
+      "COOL+OFF": 52.6,
+      "DEHUM+DEHUM": 0.0,
+      "DEHUM+OFF": 45.6,
+      "DEHUM+OTH": 0.0,
+      "OFF+OFF": 1.8,
+      "OFF+OTH": 0.0,
+      "OTH+OTH": 0.0
+    },
+    {
+      "regime": "lights-on@28",
+      "COOL+COOL": 0.0,
+      "COOL+DEHUM": 0.5,
+      "COOL+OFF": 51.0,
+      "DEHUM+DEHUM": 0.4,
+      "DEHUM+OFF": 46.9,
+      "DEHUM+OTH": 0.0,
+      "OFF+OFF": 1.2,
+      "OFF+OTH": 0.1,
+      "OTH+OTH": 0.0
+    },
+    {
+      "regime": "lights-on@<NA>",
+      "COOL+COOL": 4.9,
+      "COOL+DEHUM": 4.1,
+      "COOL+OFF": 28.4,
+      "DEHUM+DEHUM": 0.0,
+      "DEHUM+OFF": 9.6,
+      "DEHUM+OTH": 0.0,
+      "OFF+OFF": 53.0,
+      "OFF+OTH": 0.0,
+      "OTH+OTH": 0.0
+    }
+  ],
+  "circuit_share": [
+    {
+      "regime": "lights-on@21",
+      "cool_pct": 55.8,
+      "dehum_pct": 34.2,
+      "idle_pct": 10.0
+    },
+    {
+      "regime": "lights-on@22",
+      "cool_pct": 49.3,
+      "dehum_pct": 37.3,
+      "idle_pct": 13.4
+    },
+    {
+      "regime": "lights-on@23",
+      "cool_pct": 45.5,
+      "dehum_pct": 35.4,
+      "idle_pct": 19.1
+    },
+    {
+      "regime": "lights-on@24",
+      "cool_pct": 37.0,
+      "dehum_pct": 43.6,
+      "idle_pct": 19.4
+    },
+    {
+      "regime": "lights-on@25",
+      "cool_pct": 33.3,
+      "dehum_pct": 29.4,
+      "idle_pct": 37.3
+    },
+    {
+      "regime": "lights-on@26",
+      "cool_pct": 30.4,
+      "dehum_pct": 18.6,
+      "idle_pct": 51.0
+    },
+    {
+      "regime": "lights-on@28",
+      "cool_pct": 25.8,
+      "dehum_pct": 24.0,
+      "idle_pct": 50.2
+    }
+  ],
+  "circuit_balance": [
+    {
+      "regime": "lights-on@21",
+      "c1_h": 33.9,
+      "c2_h": 37.7,
+      "c1_pct": 47.3
+    },
+    {
+      "regime": "lights-on@22",
+      "c1_h": 102.8,
+      "c2_h": 101.2,
+      "c1_pct": 50.4
+    },
+    {
+      "regime": "lights-on@23",
+      "c1_h": 107.3,
+      "c2_h": 112.8,
+      "c1_pct": 48.7
+    },
+    {
+      "regime": "lights-on@24",
+      "c1_h": 154.7,
+      "c2_h": 121.2,
+      "c1_pct": 56.1
+    },
+    {
+      "regime": "lights-on@25",
+      "c1_h": 81.4,
+      "c2_h": 47.8,
+      "c1_pct": 63.0
+    },
+    {
+      "regime": "lights-on@26",
+      "c1_h": 44.0,
+      "c2_h": 12.9,
+      "c1_pct": 77.3
+    },
+    {
+      "regime": "lights-on@28",
+      "c1_h": 15.0,
+      "c2_h": 11.9,
+      "c1_pct": 55.7
+    }
+  ],
+  "table": [
+    {
+      "regime": "lights-off@21",
+      "hours": 33.65,
+      "t": 20.98,
+      "rh": 49.62,
+      "rh_p05": 46.3,
+      "rh_p95": 57.1,
+      "rh_sp": 45.8,
+      "dp": 10.01,
+      "vpd": 1.25,
+      "duty_dh": 43.8,
+      "dehum_share_pct": 54.9,
+      "dehum_kWh_day": 191.31,
+      "cool_kWh_day": 157.14,
+      "reheat_kWh_day_thermal": 970.23,
+      "reheat_kWh_day_electric": 0.0
+    },
+    {
+      "regime": "lights-off@22",
+      "hours": 110.0,
+      "t": 21.84,
+      "rh": 55.54,
+      "rh_p05": 50.5,
+      "rh_p95": 61.1,
+      "rh_sp": 51.0,
+      "dp": 12.52,
+      "vpd": 1.16,
+      "duty_dh": 38.63,
+      "dehum_share_pct": 57.59,
+      "dehum_kWh_day": 168.75,
+      "cool_kWh_day": 124.25,
+      "reheat_kWh_day_thermal": 855.8,
+      "reheat_kWh_day_electric": 0.0
+    },
+    {
+      "regime": "lights-off@23",
+      "hours": 117.44,
+      "t": 22.76,
+      "rh": 57.07,
+      "rh_p05": 51.6,
+      "rh_p95": 70.4,
+      "rh_sp": 52.82,
+      "dp": 13.76,
+      "vpd": 1.19,
+      "duty_dh": 41.03,
+      "dehum_share_pct": 65.46,
+      "dehum_kWh_day": 179.22,
+      "cool_kWh_day": 94.58,
+      "reheat_kWh_day_thermal": 908.93,
+      "reheat_kWh_day_electric": 0.0
+    },
+    {
+      "regime": "lights-off@24",
+      "hours": 162.03,
+      "t": 23.72,
+      "rh": 58.31,
+      "rh_p05": 53.6,
+      "rh_p95": 63.1,
+      "rh_sp": 53.46,
+      "dp": 15.03,
+      "vpd": 1.22,
+      "duty_dh": 45.03,
+      "dehum_share_pct": 74.31,
+      "dehum_kWh_day": 196.71,
+      "cool_kWh_day": 67.99,
+      "reheat_kWh_day_thermal": 997.61,
+      "reheat_kWh_day_electric": 0.0
+    },
+    {
+      "regime": "lights-off@25",
+      "hours": 105.49,
+      "t": 24.79,
+      "rh": 67.11,
+      "rh_p05": 56.5,
+      "rh_p95": 79.2,
+      "rh_sp": 65.09,
+      "dp": 18.2,
+      "vpd": 1.03,
+      "duty_dh": 24.06,
+      "dehum_share_pct": 62.61,
+      "dehum_kWh_day": 105.11,
+      "cool_kWh_day": 62.77,
+      "reheat_kWh_day_thermal": 533.08,
+      "reheat_kWh_day_electric": 0.0
+    },
+    {
+      "regime": "lights-off@26",
+      "hours": 27.39,
+      "t": 25.72,
+      "rh": 72.39,
+      "rh_p05": 56.6,
+      "rh_p95": 82.5,
+      "rh_sp": 70.04,
+      "dp": 20.28,
+      "vpd": 0.91,
+      "duty_dh": 15.49,
+      "dehum_share_pct": 54.7,
+      "dehum_kWh_day": 67.65,
+      "cool_kWh_day": 56.01,
+      "reheat_kWh_day_thermal": 343.06,
+      "reheat_kWh_day_electric": 0.0
+    },
+    {
+      "regime": "lights-off@27",
+      "hours": 11.98,
+      "t": 26.52,
+      "rh": 75.66,
+      "rh_p05": 70.0,
+      "rh_p95": 80.8,
+      "rh_sp": 74.13,
+      "dp": 21.85,
+      "vpd": 0.84,
+      "duty_dh": 19.19,
+      "dehum_share_pct": 71.76,
+      "dehum_kWh_day": 83.8,
+      "cool_kWh_day": 32.98,
+      "reheat_kWh_day_thermal": 425.0,
+      "reheat_kWh_day_electric": 0.0
+    },
+    {
+      "regime": "lights-off@28",
+      "hours": 29.44,
+      "t": 27.18,
+      "rh": 76.22,
+      "rh_p05": 69.5,
+      "rh_p95": 83.8,
+      "rh_sp": 74.58,
+      "dp": 22.6,
+      "vpd": 0.86,
+      "duty_dh": 19.48,
+      "dehum_share_pct": 68.46,
+      "dehum_kWh_day": 85.11,
+      "cool_kWh_day": 39.22,
+      "reheat_kWh_day_thermal": 431.62,
+      "reheat_kWh_day_electric": 0.0
+    },
+    {
+      "regime": "lights-on@21",
+      "hours": 39.83,
+      "t": 21.14,
+      "rh": 51.94,
+      "rh_p05": 47.2,
+      "rh_p95": 58.9,
+      "rh_sp": 47.43,
+      "dp": 10.85,
+      "vpd": 1.21,
+      "duty_dh": 35.04,
+      "dehum_share_pct": 37.94,
+      "dehum_kWh_day": 153.07,
+      "cool_kWh_day": 250.37,
+      "reheat_kWh_day_thermal": 776.29,
+      "reheat_kWh_day_electric": 0.0
+    },
+    {
+      "regime": "lights-on@22",
+      "hours": 117.78,
+      "t": 21.96,
+      "rh": 57.15,
+      "rh_p05": 51.6,
+      "rh_p95": 65.4,
+      "rh_sp": 51.0,
+      "dp": 13.05,
+      "vpd": 1.13,
+      "duty_dh": 37.62,
+      "dehum_share_pct": 43.05,
+      "dehum_kWh_day": 164.33,
+      "cool_kWh_day": 217.38,
+      "reheat_kWh_day_thermal": 833.41,
+      "reheat_kWh_day_electric": 0.0
+    },
+    {
+      "regime": "lights-on@23",
+      "hours": 135.97,
+      "t": 22.96,
+      "rh": 57.59,
+      "rh_p05": 52.1,
+      "rh_p95": 73.2,
+      "rh_sp": 52.67,
+      "dp": 14.07,
+      "vpd": 1.19,
+      "duty_dh": 35.45,
+      "dehum_share_pct": 43.78,
+      "dehum_kWh_day": 154.85,
+      "cool_kWh_day": 198.84,
+      "reheat_kWh_day_thermal": 785.3,
+      "reheat_kWh_day_electric": 0.0
+    },
+    {
+      "regime": "lights-on@24",
+      "hours": 170.97,
+      "t": 23.94,
+      "rh": 60.05,
+      "rh_p05": 53.8,
+      "rh_p95": 68.2,
+      "rh_sp": 53.62,
+      "dp": 15.68,
+      "vpd": 1.19,
+      "duty_dh": 44.32,
+      "dehum_share_pct": 54.14,
+      "dehum_kWh_day": 193.57,
+      "cool_kWh_day": 163.99,
+      "reheat_kWh_day_thermal": 981.67,
+      "reheat_kWh_day_electric": 0.0
+    },
+    {
+      "regime": "lights-on@25",
+      "hours": 103.05,
+      "t": 24.9,
+      "rh": 73.26,
+      "rh_p05": 64.0,
+      "rh_p95": 83.3,
+      "rh_sp": 67.63,
+      "dp": 19.72,
+      "vpd": 0.84,
+      "duty_dh": 29.39,
+      "dehum_share_pct": 46.86,
+      "dehum_kWh_day": 128.36,
+      "cool_kWh_day": 145.55,
+      "reheat_kWh_day_thermal": 650.98,
+      "reheat_kWh_day_electric": 0.0
+    },
+    {
+      "regime": "lights-on@26",
+      "hours": 58.01,
+      "t": 25.91,
+      "rh": 74.73,
+      "rh_p05": 66.4,
+      "rh_p95": 82.7,
+      "rh_sp": 67.63,
+      "dp": 21.02,
+      "vpd": 0.84,
+      "duty_dh": 18.59,
+      "dehum_share_pct": 37.9,
+      "dehum_kWh_day": 81.2,
+      "cool_kWh_day": 133.03,
+      "reheat_kWh_day_thermal": 411.82,
+      "reheat_kWh_day_electric": 0.0
+    },
+    {
+      "regime": "lights-on@28",
+      "hours": 26.98,
+      "t": 27.35,
+      "rh": 77.32,
+      "rh_p05": 73.9,
+      "rh_p95": 81.4,
+      "rh_sp": 73.02,
+      "dp": 23.03,
+      "vpd": 0.83,
+      "duty_dh": 24.09,
+      "dehum_share_pct": 48.3,
+      "dehum_kWh_day": 105.22,
+      "cool_kWh_day": 112.63,
+      "reheat_kWh_day_thermal": 533.59,
+      "reheat_kWh_day_electric": 0.0
+    },
+    {
+      "regime": "transition",
+      "hours": 180.0,
+      "t": 23.54,
+      "rh": 61.87,
+      "rh_p05": 51.3,
+      "rh_p95": 79.9,
+      "rh_sp": 56.96,
+      "dp": 15.69,
+      "vpd": 1.11,
+      "duty_dh": 37.19,
+      "dehum_share_pct": 57.83,
+      "dehum_kWh_day": 162.44,
+      "cool_kWh_day": 118.48,
+      "reheat_kWh_day_thermal": 823.81,
+      "reheat_kWh_day_electric": 0.0
+    },
+    {
+      "regime": "unlit@15",
+      "hours": 71.37,
+      "t": 14.89,
+      "rh": 54.58,
+      "rh_p05": 52.6,
+      "rh_p95": 56.6,
+      "rh_sp": 53.68,
+      "dp": 5.81,
+      "vpd": 0.77,
+      "duty_dh": 4.9,
+      "dehum_share_pct": 10.19,
+      "dehum_kWh_day": 21.39,
+      "cool_kWh_day": 188.5,
+      "reheat_kWh_day_thermal": 108.47,
+      "reheat_kWh_day_electric": 0.0
+    },
+    {
+      "regime": "unlit@17",
+      "hours": 17.37,
+      "t": 16.94,
+      "rh": 47.48,
+      "rh_p05": 45.8,
+      "rh_p95": 49.6,
+      "rh_sp": 50.0,
+      "dp": 5.69,
+      "vpd": 1.01,
+      "duty_dh": 0.0,
+      "dehum_share_pct": 0.0,
+      "dehum_kWh_day": 0.0,
+      "cool_kWh_day": 182.26,
+      "reheat_kWh_day_thermal": 0.0,
+      "reheat_kWh_day_electric": 0.0
+    },
+    {
+      "regime": "unlit@18",
+      "hours": 22.66,
+      "t": 17.95,
+      "rh": 49.67,
+      "rh_p05": 46.2,
+      "rh_p95": 60.3,
+      "rh_sp": 50.59,
+      "dp": 7.24,
+      "vpd": 1.04,
+      "duty_dh": 1.2,
+      "dehum_share_pct": 2.75,
+      "dehum_kWh_day": 5.24,
+      "cool_kWh_day": 185.18,
+      "reheat_kWh_day_thermal": 26.58,
+      "reheat_kWh_day_electric": 0.0
+    },
+    {
+      "regime": "unlit@21",
+      "hours": 13.22,
+      "t": 20.91,
+      "rh": 49.15,
+      "rh_p05": 46.8,
+      "rh_p95": 52.4,
+      "rh_sp": 45.0,
+      "dp": 9.83,
+      "vpd": 1.26,
+      "duty_dh": 47.25,
+      "dehum_share_pct": 59.03,
+      "dehum_kWh_day": 206.4,
+      "cool_kWh_day": 143.26,
+      "reheat_kWh_day_thermal": 1046.73,
+      "reheat_kWh_day_electric": 0.0
+    },
+    {
+      "regime": "unlit@28",
+      "hours": 239.0,
+      "t": 27.14,
+      "rh": 76.53,
+      "rh_p05": 73.1,
+      "rh_p95": 80.9,
+      "rh_sp": 75.0,
+      "dp": 22.64,
+      "vpd": 0.84,
+      "duty_dh": 26.41,
+      "dehum_share_pct": 67.93,
+      "dehum_kWh_day": 115.35,
+      "cool_kWh_day": 54.47,
+      "reheat_kWh_day_thermal": 585.01,
+      "reheat_kWh_day_electric": 0.0
+    }
+  ],
+  "infiltration": [
+    {
+      "wh_rh": 70,
+      "room_rh": 50.0,
+      "w_out_g": 18.25,
+      "w_in_g": 8.205,
+      "kg_h": 10.585,
+      "kW_latent": 7.204
+    },
+    {
+      "wh_rh": 70,
+      "room_rh": 62.5,
+      "w_out_g": 18.25,
+      "w_in_g": 10.291,
+      "kg_h": 8.388,
+      "kW_latent": 5.708
+    },
+    {
+      "wh_rh": 80,
+      "room_rh": 50.0,
+      "w_out_g": 20.945,
+      "w_in_g": 8.205,
+      "kg_h": 13.425,
+      "kW_latent": 9.137
+    },
+    {
+      "wh_rh": 80,
+      "room_rh": 62.5,
+      "w_out_g": 20.945,
+      "w_in_g": 10.291,
+      "kg_h": 11.228,
+      "kW_latent": 7.641
+    }
+  ],
+  "ach": 1.713620969486121,
+  "m_dot": 0.2927435822872123,
+  "swings": [
+    {
+      "regime": "lights-on@21",
+      "hours": 39.83,
+      "rh_mean": 51.89,
+      "swing_p2p": 6.25,
+      "swing_sd": 1.93,
+      "period_min": 10
+    },
+    {
+      "regime": "lights-on@22",
+      "hours": 117.78,
+      "rh_mean": 57.13,
+      "swing_p2p": 6.44,
+      "swing_sd": 1.94,
+      "period_min": 9
+    },
+    {
+      "regime": "lights-on@23",
+      "hours": 135.97,
+      "rh_mean": 57.59,
+      "swing_p2p": 7.03,
+      "swing_sd": 2.34,
+      "period_min": 8
+    },
+    {
+      "regime": "lights-on@24",
+      "hours": 170.97,
+      "rh_mean": 60.03,
+      "swing_p2p": 6.88,
+      "swing_sd": 2.06,
+      "period_min": 8
+    },
+    {
+      "regime": "lights-on@25",
+      "hours": 103.05,
+      "rh_mean": 73.26,
+      "swing_p2p": 7.49,
+      "swing_sd": 2.33,
+      "period_min": 6
+    },
+    {
+      "regime": "lights-on@26",
+      "hours": 58.01,
+      "rh_mean": 74.73,
+      "swing_p2p": 3.56,
+      "swing_sd": 1.67,
+      "period_min": 6
+    },
+    {
+      "regime": "lights-on@28",
+      "hours": 26.98,
+      "rh_mean": 77.33,
+      "swing_p2p": 3.65,
+      "swing_sd": 1.32,
+      "period_min": 11
+    }
+  ],
+  "botrytis_episodes": [
+    [
+      "2026-05-02 00:49:00",
+      "2026-05-02 01:32:00",
+      43.0
+    ],
+    [
+      "2026-05-02 01:56:00",
+      "2026-05-02 04:32:00",
+      156.0
+    ],
+    [
+      "2026-05-02 04:34:00",
+      "2026-05-02 06:33:00",
+      119.0
+    ],
+    [
+      "2026-05-03 02:33:00",
+      "2026-05-03 22:02:00",
+      1169.0
+    ],
+    [
+      "2026-05-04 00:07:00",
+      "2026-05-04 08:59:00",
+      532.0
+    ],
+    [
+      "2026-05-04 22:44:00",
+      "2026-05-07 22:00:00",
+      4276.0
+    ],
+    [
+      "2026-05-07 22:34:00",
+      "2026-05-08 00:55:00",
+      141.0
+    ],
+    [
+      "2026-05-08 00:58:00",
+      "2026-05-08 08:59:00",
+      481.0
+    ],
+    [
+      "2026-05-08 22:01:00",
+      "2026-05-09 03:55:00",
+      354.0
+    ],
+    [
+      "2026-05-09 03:58:00",
+      "2026-05-09 08:59:00",
+      301.0
+    ],
+    [
+      "2026-05-10 02:27:00",
+      "2026-05-10 03:20:00",
+      53.0
+    ],
+    [
+      "2026-05-10 03:29:00",
+      "2026-05-10 04:00:00",
+      31.0
+    ],
+    [
+      "2026-05-10 23:57:00",
+      "2026-05-11 00:39:00",
+      42.0
+    ],
+    [
+      "2026-05-11 00:48:00",
+      "2026-05-11 07:25:00",
+      397.0
+    ],
+    [
+      "2026-05-30 22:11:00",
+      "2026-05-30 22:42:00",
+      31.0
+    ]
+  ],
+  "botrytis_total_h": 135.4,
+  "pollination_episodes": [
+    [
+      "2026-06-28 22:08:00",
+      "2026-06-29 01:32:00",
+      204.0
+    ],
+    [
+      "2026-06-29 23:26:00",
+      "2026-06-30 00:29:00",
+      63.0
+    ],
+    [
+      "2026-06-30 01:16:00",
+      "2026-06-30 03:28:00",
+      132.0
+    ],
+    [
+      "2026-06-30 06:32:00",
+      "2026-06-30 07:17:00",
+      45.0
+    ],
+    [
+      "2026-06-30 08:12:00",
+      "2026-06-30 22:01:00",
+      829.0
+    ]
+  ],
+  "pollination_total_h": 21.2,
+  "evap_by_mode": [
+    {
+      "circuit": 1,
+      "mode": "plain cooling",
+      "hours": 604.29,
+      "evap_mean": 7.79,
+      "evap_p05": 2.9,
+      "evap_min": -0.1,
+      "dewpoint_mean": 14.97,
+      "below0_h": 0.01
+    },
+    {
+      "circuit": 1,
+      "mode": "dehum (reheat on)",
+      "hours": 590.37,
+      "evap_mean": 9.49,
+      "evap_p05": 5.3,
+      "evap_min": -0.1,
+      "dewpoint_mean": 16.16,
+      "below0_h": 0.0
+    },
+    {
+      "circuit": 2,
+      "mode": "plain cooling",
+      "hours": 424.79,
+      "evap_mean": 7.16,
+      "evap_p05": 1.5,
+      "evap_min": -1.6,
+      "dewpoint_mean": 13.9,
+      "below0_h": 0.97
+    },
+    {
+      "circuit": 2,
+      "mode": "dehum (reheat on)",
+      "hours": 578.87,
+      "evap_mean": 8.43,
+      "evap_p05": 3.0,
+      "evap_min": -0.3,
+      "dewpoint_mean": 15.47,
+      "below0_h": 0.0
+    }
+  ],
+  "evap_by_mode_july": [
+    {
+      "circuit": 1,
+      "mode": "plain cooling",
+      "hours": 40.07,
+      "evap_mean": 3.14,
+      "evap_min": -0.1,
+      "below0_h": 0.01,
+      "dewpoint_mean": 6.96
+    },
+    {
+      "circuit": 1,
+      "mode": "dehum (reheat on)",
+      "hours": 6.34,
+      "evap_mean": 5.34,
+      "evap_min": -0.1,
+      "below0_h": 0.0,
+      "dewpoint_mean": 10.07
+    },
+    {
+      "circuit": 2,
+      "mode": "plain cooling",
+      "hours": 68.12,
+      "evap_mean": 2.31,
+      "evap_min": -1.6,
+      "below0_h": 0.97,
+      "dewpoint_mean": 6.28
+    },
+    {
+      "circuit": 2,
+      "mode": "dehum (reheat on)",
+      "hours": 15.99,
+      "evap_mean": 3.14,
+      "evap_min": -0.3,
+      "below0_h": 0.0,
+      "dewpoint_mean": 8.12
+    }
+  ],
+  "reheat_is_electric": false,
+  "fla_kva": 36.6
+}
