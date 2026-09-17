@@ -600,3 +600,118 @@ measurement before you spend anything.
 **And the standing constraint:** the machine most plausibly died from being run at
 15 °C. Whatever setpoint you choose, **do not walk it below ~18 °C**, and fit a suction
 pressure / evaporator low-limit alarm before restarting.
+
+---
+---
+
+# PART III — Humidity behaviour
+
+Reproduce: `python3 analysis/run_humidity.py`. Charts `figs/h*.png`.
+
+## 16. Mode decode, confirmed two ways
+
+Jimmy's valve rule (both valves off = OFF; cooling only = COOL; cooling +
+heating = DEHUM) is confirmed independently by discharge pressure:
+
+| circuit | COOL | DEHUM | OFF |
+|---|---|---|---|
+| 1 | 26.25 bar | 21.91 bar | 17.56 bar |
+| 2 | 26.05 bar | 21.73 bar | 16.55 bar |
+
+Bands separate cleanly (COOL p05 24.1 vs DEHUM p95 23.6). **Dehum sitting *below*
+cooling proves the reheat coil is a refrigerant-side condenser** — extra condensing
+area lowers head pressure. That independently confirms the FLA arithmetic:
+92.3 kW of reheat is impossible on a 36.6 kVA supply, so **reheat draws no extra
+electricity. Its "waste" is thermodynamic, not metered.**
+
+## 17. The plant is two circuits in different modes
+
+| plant state | hours | % |
+|---|---|---|
+| COOL + OFF | 594.2 | 32.9 |
+| DEHUM + OFF | 524.4 | 29.0 |
+| **COOL + DEHUM** | 331.3 | **18.3** |
+| DEHUM + DEHUM | 152.8 | 8.5 |
+| OFF + OFF | 147.3 | 8.1 |
+| **COOL + COOL** | 51.8 | **2.9** |
+
+Circuits alternate evenly (50.4/49.6 at @22, 48.7/51.3 at @23) — lead/lag works.
+
+**Circuit-time committed under lights:**
+
+| lit regime | cooling % | dehumidifying % | idle % |
+|---|---|---|---|
+| @21 | 55.8 | **34.2** | 10.0 |
+| @22 | 49.3 | **37.3** | 13.4 |
+| @23 | 45.5 | 35.4 | 19.1 |
+| @24 | 37.0 | **43.6** | 19.4 |
+
+> 🔴 **The sensible limit was never raw compressor capacity — it was latent
+> commitment.** At 21 °C the plant ran BOTH circuits on cooling only 17.5 % of the
+> time, while one circuit was tied to dehumidification 63 % of the time. Freeing the
+> latent load hands back most of a circuit.
+
+## 18. Master table
+
+| regime | T °C | RH % | p05–p95 | RH sp | dew °C | VPD kPa | dehum duty % | dehum kWh/d | reheat kWh/d (thermal / **electric**) |
+|---|---|---|---|---|---|---|---|---|---|
+| lights-on@21 | 21.1 | 51.9 | 47.2–58.9 | 47.4 | 10.9 | 1.21 | 35.0 | 153.1 | 776.3 / **0** |
+| lights-on@22 | 22.0 | 57.2 | 51.6–65.4 | 51.0 | 13.1 | 1.13 | 37.6 | 164.3 | 833.4 / **0** |
+| lights-on@23 | 23.0 | 57.6 | 52.1–73.2 | 52.7 | 14.1 | 1.19 | 35.4 | 154.8 | 785.3 / **0** |
+| lights-on@24 | 23.9 | 60.0 | 53.8–68.2 | 53.6 | 15.7 | 1.19 | 44.3 | 193.6 | 981.7 / **0** |
+| lights-off@21 | 21.0 | 49.6 | 46.3–57.1 | 45.8 | 10.0 | 1.25 | 43.8 | 191.3 | 970.2 / **0** |
+| lights-off@22 | 21.8 | 55.5 | 50.5–61.1 | 51.0 | 12.5 | 1.16 | 38.6 | 168.8 | 855.8 / **0** |
+| lights-off@23 | 22.8 | 57.1 | 51.6–70.4 | 52.8 | 13.8 | 1.19 | 41.0 | 179.2 | 908.9 / **0** |
+| lights-off@24 | 23.7 | 58.3 | 53.6–63.1 | 53.5 | 15.0 | 1.22 | 45.0 | 196.7 | 997.6 / **0** |
+| unlit@15 (no crop) | 14.9 | 54.6 | 52.6–56.6 | 53.7 | 5.8 | 0.77 | 4.9 | 21.4 | 108.5 / **0** |
+| unlit@18 (no crop) | 18.0 | 49.7 | 46.2–60.3 | 50.6 | 7.2 | 1.04 | 1.2 | 5.2 | 26.6 / **0** |
+
+**The machine never met its RH setpoint with the crop in** — +4.5 to +6.4 points on
+every lit regime. With the crop gone (July) the error collapses to −0.9 to +0.9.
+
+## 19. Stability and excursions
+
+RH oscillates **6.3–7.5 points peak-to-peak on an 8–10 min period**, locked to
+compressor cycling (median on-time 5 min).
+
+- **Botrytis risk: 135.4 h above 75 % RH with lights on**, across 15 episodes —
+  including one **continuous 71.3 h episode, 2026-05-04 → 05-07**.
+- **Pollination risk: 21.2 h below 50 % RH**, mostly 2026-06-28→30 when the setpoint
+  was pushed to 21 °C / 45 % RH.
+
+## 20. Icing link — hypothesis REFUTED
+
+| circuit | mode | h | evap mean °C | evap min °C | hours < 0 °C |
+|---|---|---|---|---|---|
+| 1 | plain cooling | 604.3 | 7.79 | −0.1 | 0.01 |
+| 1 | dehum | 590.4 | **9.49** | −0.1 | **0.00** |
+| 2 | plain cooling | 424.8 | 7.16 | **−1.6** | **0.97** |
+| 2 | dehum | 578.9 | **8.43** | −0.3 | **0.00** |
+
+**Dehumidification runs the coil 1.3–1.7 K WARMER, and every sub-zero hour occurred in
+plain cooling, not dehum.** The July icing was driven by low return-air temperature at
+the 15 °C setpoint, not by dehumidification. Part II §13's sequence stands; its
+suggested dehum link does not.
+
+## 21. Where the moisture comes from
+
+At steady state the machine removes what enters. Using the unexplained envelope UA
+(0.294 kW/K → **1.71 ACH**, 0.293 kg/s dry air) and warehouse air at 29.5 °C:
+
+| warehouse RH | room 50 % | room 62.5 % | saving |
+|---|---|---|---|
+| 70 % | 10.59 kg/h (7.20 kW) | 8.39 kg/h (5.71 kW) | −1.50 kW (21 %) |
+| 80 % | 13.43 kg/h (9.14 kW) | 11.23 kg/h (7.64 kW) | −1.50 kW (16 %) |
+
+> ⚠️ **Infiltration alone plausibly accounts for most of the measured latent load.**
+> Supporting evidence: with the crop entirely removed (`unlit@21`, 2026-07-01) dehum
+> duty was **47.3 %** — *higher* than the 35.0 % measured with the full cannabis crop at
+> the same setpoint. **Confound:** under lights the AC-mode coil condenses heavily as a
+> by-product, so fewer dedicated dehum cycles are needed. The comparison is suggestive,
+> not conclusive.
+>
+> **If infiltration does dominate, changing crop frees far less latent duty than Part II
+> assumed (5–10 %), and the true figure is nearer 20–25 % — which costs about 3 °C of
+> lit-period ceiling.** Sealing the room, not changing crop, is what frees the plant.
+> **Only a condensate meter settles this**, and it is now the highest-value test in the
+> whole programme.
