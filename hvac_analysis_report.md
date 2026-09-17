@@ -663,11 +663,15 @@ Circuits alternate evenly (50.4/49.6 at @22, 48.7/51.3 at @23) — lead/lag work
 | lights-off@22 | 21.8 | 55.5 | 50.5–61.1 | 51.0 | 12.5 | 1.16 | 38.6 | 168.8 | 855.8 / **0** |
 | lights-off@23 | 22.8 | 57.1 | 51.6–70.4 | 52.8 | 13.8 | 1.19 | 41.0 | 179.2 | 908.9 / **0** |
 | lights-off@24 | 23.7 | 58.3 | 53.6–63.1 | 53.5 | 15.0 | 1.22 | 45.0 | 196.7 | 997.6 / **0** |
-| unlit@15 (no crop) | 14.9 | 54.6 | 52.6–56.6 | 53.7 | 5.8 | 0.77 | 4.9 | 21.4 | 108.5 / **0** |
-| unlit@18 (no crop) | 18.0 | 49.7 | 46.2–60.3 | 50.6 | 7.2 | 1.04 | 1.2 | 5.2 | 26.6 / **0** |
+| unlit@15 *(crop hanging, dry-down)* | 14.9 | 54.6 | 52.6–56.6 | 53.7 | 5.8 | 0.77 | 4.9 | 21.4 | 108.5 / **0** |
+| unlit@18 *(crop hanging, dry-down)* | 18.0 | 49.7 | 46.2–60.3 | 50.6 | 7.2 | 1.04 | 1.2 | 5.2 | 26.6 / **0** |
 
-**The machine never met its RH setpoint with the crop in** — +4.5 to +6.4 points on
-every lit regime. With the crop gone (July) the error collapses to −0.9 to +0.9.
+**The machine never met its RH setpoint with the standing crop** — +4.5 to +6.4 points
+on every lit regime. In July the error collapses to −0.9 to +0.9.
+
+> ⚠️ **CORRECTION 2026-09-17.** July was **not an empty room**. The crop was cut and
+> **hung in the same room to pre-dry for several days**. The July regimes are a
+> *drying* crop, not *no* crop.
 
 ## 19. Stability and excursions
 
@@ -703,12 +707,21 @@ At steady state the machine removes what enters. Using the unexplained envelope 
 | 70 % | 10.59 kg/h (7.20 kW) | 8.39 kg/h (5.71 kW) | −1.50 kW (21 %) |
 | 80 % | 13.43 kg/h (9.14 kW) | 11.23 kg/h (7.64 kW) | −1.50 kW (16 %) |
 
-> ⚠️ **Infiltration alone plausibly accounts for most of the measured latent load.**
-> Supporting evidence: with the crop entirely removed (`unlit@21`, 2026-07-01) dehum
-> duty was **47.3 %** — *higher* than the 35.0 % measured with the full cannabis crop at
-> the same setpoint. **Confound:** under lights the AC-mode coil condenses heavily as a
-> by-product, so fewer dedicated dehum cycles are needed. The comparison is suggestive,
-> not conclusive.
+> 🔴 **RETRACTED 2026-09-17.** This section originally argued that infiltration dominates
+> the latent load, citing `unlit@21` (2026-07-01) as a "crop entirely removed" baseline
+> showing 47.3 % dehum duty. **That is wrong. 2026-07-01 was harvest day — the crop was
+> being cut and hung in the room to dry.** The 47.3 % was peak dry-down load, the wettest
+> the room ever was, not an empty room. **The infiltration-dominates hypothesis has lost
+> its supporting evidence and is now unsupported.** The arithmetic below stands on its
+> own terms (it is a moisture balance, not a measurement), but nothing in the data
+> confirms the 1.71 ACH figure.
+>
+> What survives: the dry-down tail (2026-07-03 12:00 → 07-06, constant 15 °C) is **flat**
+> — duty 50.3 % → 50.3 %, trend −0.8 pp/day (r = −0.23), absolute humidity steady at
+> 5.70 g/kg. A decaying drying curve would not be flat, so by 07-03 the crop had
+> essentially given up its water and **that window is the best ambient baseline in the
+> record.** UA = 0.721 kW/K and τ are fitted on exactly that window, so they survive the
+> correction.
 >
 > **If infiltration does dominate, changing crop frees far less latent duty than Part II
 > assumed (5–10 %), and the true figure is nearer 20–25 % — which costs about 3 °C of
